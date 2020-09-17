@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+  # Create your models here.
 class Empleado(models.Model):
   codPers = models.IntegerField(primary_key=True, )
   direcc = models.CharField(max_length=100, blank=False)
@@ -16,7 +16,7 @@ class Empleado(models.Model):
   def __str__(self):
     return self.dni
 
-# logoProy = models.ImageField()
+  # logoProy = models.ImageField()
 class Proyecto(models.Model):
   codPyto = models.IntegerField(primary_key=True)
   codSNIP = models.CharField(max_length=10)

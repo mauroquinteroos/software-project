@@ -1,26 +1,36 @@
-.container {
-  margin: 0 auto;
-}
+
 .proyecto {
-  border: 1px black solid;
+
   border-radius: 3px;
   padding: 20px;
   display: flex;
   justify-content: space-around;
 }
-.tramificacion {
-  margin-top: 20px;
+#content {
+  width: auto;
+  padding: 0 1rem;
+  min-height: 100vh;
+  transition: var(--transition);
+  margin-left: var(--sidebar-width);
 }
+#sidebar.hidden ~ #content {
+  margin-left: var(--sidebar-hidden-width);
+}
+
 .main {
   display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .seccion1 {
   width: 290px;
+  background-color:#ffffff;
 }
 .seccion2 {
   margin-left: 20px;
   width: 100%;
-  border: 1px black solid;
+  background-color:#ffffff;
+
 }
 
 .tab-content {
@@ -61,11 +71,12 @@ ul,
 }
 
 .seccion1 {
-  border: 1px solid rgb(0, 0, 0);
+  
   height: 100%;
   width: 30%;
-  background-color: gainsboro;
+ 
 }
 .active {
   display: block;
+  
 }

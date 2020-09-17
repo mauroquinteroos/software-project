@@ -9,27 +9,60 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/eada1e3dde.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href={% static 'css/global.css' %}>
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" href="#">Preliminar <span class="sr-only">(current)</span></a>
-          <a class="nav-link" href="#">Reconocimiento</a>
-          <a class="nav-link" href="#">Topografia</a>
-          <a class="nav-link" href="#">Salir</a>
-       
-        </div>
+  <div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar--header" id="sidebar-header">
+        <img src={% static 'img/user.png' %} alt="user icon">
+        <p>Quinteros Mauro Danilo</p>
       </div>
+      <ul class="list-unstyled sidebar--list" id="sidebar-list">
+        <li>
+          <a class="sidebar--item " href="/ruta">
+            <i class="fas fa-road fa-fw icon-sidebar"></i>
+            <span class="sidebar--item-text">Preeliminar</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar--item active" href="/ruta/reconocimiento">
+            <i class="fas fa-map-marker-alt fa-fw icon-sidebar"></i>
+            <span class="sidebar--item-text">Reconocimiento</span>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar--item" href="/ruta/topografia">
+            <i class="fas fa-drafting-compass fa-fw icon-sidebar"></i>
+            <span class="sidebar--item-text">Topografía</span>
+          </a>
+        </li>
+      </ul>
     </nav>
-    <div class="tramificacion">
-      <div class="proyecto">
+    <div class="tramificacion" id="content">
+      <nav class="navbar navbar-expand navbar--collapse">
+        <div class="container-fluid">
+          <button type="button" id="sidebar-btn" class="btn btn-bg">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+      <section class="section--container">
+        <div class="navbar--links">
+          <h2 class="section--title">.:Lista de Opciones:.</h2>
+          <div class="option--container">
+            <a href="/ruta" class="btn btn-bg option--item active">
+              Preeliminar
+            </a>
+            <a href="/ruta/reconocimiento" class="btn btn-bg option--item">
+              Reconocimiento
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class=" proyecto section--container">
         <label for="proyecto">Proyecto</label>
         <select name="proyecto" id="">
           <option value="" selected>Elija un proyecto</option>
@@ -42,7 +75,7 @@
         <select name="estado" id="">
           <option value="" selected>Elija una opcion</option>
         </select>
-      </div>
+      </section>
       <div class="main">
         <div class="seccion1">
           <ul id="myUL">

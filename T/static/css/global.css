@@ -1,70 +1,16 @@
 :root {
   --white-clr: #ffffff;
   --light-clr: #f3f3f4;
-  --gray-clr: #a7b1c2; /* text sidebar */
+  --gray-clr: #9eadba;
   --light-gray-clr: #f3f6fa;
   --light-green-clr: #1ab392;
   --dark-green-clr: #18a689;
-  --dark-blue-clr: #2f4050; /* background sidebar */
-  --dark: #263948; /* background sidebar header y subitems */
+  --dark: #2e4150;
+  --dark-blue-clr: #263a4a;
   --text-clr: #676a6c;
   --sidebar-width: 13.75rem;
-}
-/* --- Ordenar --- */
-#sidebar {
-  min-width: var(--sidebar-width);
-  max-width: var(--sidebar-width);
-  background: var(--dark-blue-clr);
-  transition: all .3s;
-  color: var(--gray-clr);
-}
-#sidebar.active {
-  margin-left: calc(var(--sidebar-width) * -1);
-}
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: #4a87bb;
-}
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #cfd8dd;
-}
-#sidebar ul p {
-  color: #fff;
-}
-#sidebar ul li a {
-  padding: 10px;
-  display: block;
-}
-#sidebar ul li a:hover {
-  color: #4a87bb;
-}
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-  color: #fff;
-  background: #6d7fcc;
-}
-a[data-toogle="collapse"] {
-  position: relative;
-}
-.dropdown-toogle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 20%;
-  transform: translateY(-50%);
-}
-ul ul a {
-  font-size: .9em;
-  padding-left: 30px;
-  background: #6d7fcc;
-}
-@media (max-width: 768px) {
-  #sidebar {
-    margin-left: -220px;
-  }
-  #sidebar.active {
-    margin-left: 0;
-  }
+  --sidebar-hidden-width: 3.75rem;
+  --transition: all .5s ease;
 }
 /* Globals */
 *, *::before, *::after {
@@ -78,16 +24,99 @@ body {
 a, a:hover, a:focus {
   color: inherit;
   text-decoration: none;
-  transition: all;
-}
-.wrapper {
-  display: flex;
+  transition: var(--transition);
 }
 #content {
-  width: 100%;
+  width: auto;
   padding: 0 1rem;
   min-height: 100vh;
-  transition: all .3s;
+  transition: var(--transition);
+  margin-left: var(--sidebar-width);
+}
+#sidebar.hidden ~ #content {
+  margin-left: var(--sidebar-hidden-width);
+}
+.btn-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1875rem;
+  height: 2.1875rem;
+  padding: 0;
+}
+.menu-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.calendar-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-left: .5rem;
+  color: var(--text-clr);
+}
+/* --- Sidebar --- */
+#sidebar {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  z-index: 200;
+  width: var(--sidebar-width);
+  background-color: var(--dark);
+  color: var(--gray-clr);
+  transition: var(--transition);
+}
+#sidebar.hidden {
+  width: var(--sidebar-hidden-width);
+}
+#sidebar.hidden .sidebar--header {
+  max-height: 0;
+}
+#sidebar.hidden .sidebar--item {
+  width: var(--sidebar-hidden-width);
+  padding: 0.9375rem 1.25rem;
+}
+#sidebar.hidden .sidebar--item .icon-sidebar {
+  margin: 0;
+}
+.sidebar--header {
+  display: block;
+  max-height: 10.625rem;
+  padding: 2.0625rem 1.5625rem ;
+  background-color: var(--dark-blue-clr);
+  color: var(--light-gray-clr);
+  text-align: left;
+  transition: var(--transition);
+}
+.sidebar--header img {
+  width: 3.75rem;
+  height: 3.75rem;
+}
+.sidebar--header p {
+  margin: .8em 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 2rem;
+  text-transform: uppercase;
+}
+.sidebar--list {
+  padding: 2rem 0;
+}
+.sidebar--item {
+  display: block;
+  margin-left: 0;
+  padding: 0.9375rem 1.5625rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.sidebar--item.active {
+  border-left: 0.25rem solid var(--dark-green-clr);
+  background-color: var(--dark-blue-clr);
+  color: var(--white-clr);
+}
+.icon-sidebar {
+  margin-right: 0.5rem;
+  font-size: 0.875rem;
 }
 /* --- Collapse Button Style --- */
 .navbar--collapse {
@@ -126,7 +155,7 @@ a, a:hover, a:focus {
 }
 /* --- Components Styles --- */
 .content--container {
-  padding: 1.875rem 1rem;
+  padding: 1.25rem 1rem 1.875rem;
 }
 .content--container-bg {
   background: var(--light-gray-clr);
@@ -167,7 +196,6 @@ a, a:hover, a:focus {
   position: relative;
   width: 100%;
   max-height: 17.9375rem;
-  /* max-width: 62.875rem; */
   margin-top: 1.5rem;
   overflow: scroll;
 }
@@ -241,11 +269,6 @@ a, a:hover, a:focus {
   background-color: var(--light-gray-clr);
   border: 1px solid var(--light-clr);
   flex: 1 1 0;
-}
-.project--item .icon {
-  display: block;
-  margin-left: .5rem;
-  color: var(--text-clr);
 }
 /* --- Route Section --- */
 .route--row {

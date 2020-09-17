@@ -7,9 +7,9 @@ import json
 
 # Llamar Templates
 def ruta(request):
-  # proyecto = obtener_proyecto()
-  # return render(request, 'rutas.html', {'proyecto': empleado})
-  return render(request, 'rutas.html')
+  proyecto = obtener_proyecto()
+  rutas = obtener_rutas(proyecto.codPyto)
+  return render(request, 'rutas.html', {'proyecto': proyecto, 'rutas': rutas})
 
 def reconocimiento(request):
   return render(request, 'reconocimiento.html')
@@ -21,11 +21,11 @@ def get_empleado(): # Funcion de prueba, eliminarlo despues
   return empleado
 
 def obtener_proyecto():
-  proyecto = Proyecto.objects.get(codpyto = 1) # cambiar codigo segun la bd
+  proyecto = Proyecto.objects.get(codPyto = 2)
   return proyecto
 
-def obtener_rutas():
-  rutas = Ruta.objects.all()
+def obtener_rutas(cod):
+  rutas = Ruta.objects.filter(codPyto=cod)
   return rutas
 
 def obtener_tramos():

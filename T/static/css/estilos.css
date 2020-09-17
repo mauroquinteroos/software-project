@@ -1,0 +1,73 @@
+.container{
+    margin: 0 auto;
+}
+
+.proyecto{
+    border: 1px black solid;
+    border-radius: 3px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.tramificacion{
+    margin-top: 20px;
+}
+.main{
+    display:flex;
+    
+}
+.seccion1{
+   width: 290px;
+}
+.seccion2{
+    margin-left: 20px;
+    width: 100%;
+    border: 1px black solid;
+}
+
+.tab-content{
+        padding: 30px;
+    }
+    
+.tab-item{
+        margin-bottom: 18px;
+    }
+    
+
+.pad{
+        padding: 0 !important;
+    }
+
+ul, #myUL {
+    list-style-type: none;
+  }
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  .caret {
+    cursor: pointer;
+    user-select: none; 
+  }
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 15px;
+  }
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+  .nested {
+    display: none;
+  }
+  
+ .seccion1 {
+    border: 1px solid rgb(0, 0, 0);
+    height:100%;
+    width: 30%;
+    background-color: gainsboro;
+  }
+  .active {
+    display: block;
+  }

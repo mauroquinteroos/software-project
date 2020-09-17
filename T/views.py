@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def reconocimiento(request):
+    return render(request, 'reconocimiento.html')

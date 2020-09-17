@@ -1,6 +1,6 @@
 from django.db import models
 
-  # Create your models here.
+# Create your models here.
 class Empleado(models.Model):
   codPers = models.IntegerField(primary_key=True, )
   direcc = models.CharField(max_length=100, blank=False)
@@ -16,7 +16,7 @@ class Empleado(models.Model):
   def __str__(self):
     return self.dni
 
-  # logoProy = models.ImageField()
+
 class Proyecto(models.Model):
   codPyto = models.IntegerField(primary_key=True)
   codSNIP = models.CharField(max_length=10)
@@ -50,6 +50,7 @@ class Proyecto(models.Model):
   def __str__(self):
     return self.nomPyto
 
+
 class Ruta(models.Model):
   codPyto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
   codRutaPy = models.IntegerField(primary_key=True)
@@ -72,7 +73,7 @@ class Ruta(models.Model):
   vigencia = models.CharField(max_length=1)
   elaboradorPor = models.ForeignKey(Empleado, on_delete=models.CASCADE)
 
-  # codPyto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
+
 class Tramo(models.Model):
   codRutaPy = models.ForeignKey(Ruta, on_delete=models.CASCADE)
   codTramoPy = models.IntegerField(primary_key=True)

@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruta</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/eada1e3dde.js" crossorigin="anonymous"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href={% static 'css/global.css' %}>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- ----- Starts Sidebar ----- -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h1>Sidebar</h1>
+        </div>
+        <ul class="list-unstyled">
+          <p>The Providers</p>
+          <li class="active">
+            <a href="#homesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toogle">Home</a>
+            <ul class="collapse list-unstyled" id="homesubmenu">
+              <li>
+                <a href="#">Home 1</a>
+              </li>
+              <li>
+                <a href="#">Home 2</a>
+              </li>
+              <li>
+                <a href="#">Home 3</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#pagesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toogle">Page 1</a>
+            <ul class="collapse list-unstyled" id="pagesubmenu">
+              <li><a href="#">Page 1</a></li>
+              <li><a href="#">Page 2</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Policy</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- ----- Ends Sidebar ----- -->
+      <!-- ----- Starts Main Content ----- -->
+      <div id="content">
+        <nav class="navbar navbar-expand navbar--collapse">
+          <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-bg">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+        <div class="content--container">
+          <div class="content--container-bg">
+            <section class="section--container">
+              <div class="navbar--links">
+                <h2 class="section--title">.:Lista de Opciones:.</h2>
+                <div class="option--container">
+                  <a href="/ruta" class="btn btn-bg option--item active">
+                    Preeliminar
+                  </a>
+                  <a href="/ruta/reconocimiento" class="btn btn-bg option--item">
+                    Reconocimiento
+                  </a>
+                </div>
+              </div>
+            </section>
+            <section class="section--container">
+              <div class="navbar--options">
+                <h2 class="section--title">.:Opciones Tramificación:.</h2>
+                <div class="option--container option--container-center">
+                  <button type="button" class="btn btn-bg option--item">
+                    Nueva Ruta
+                  </button>
+                  <button type="button" class="btn btn-bg option--item">
+                    Nuevo Tramo
+                  </button>
+                  <button type="button" class="btn btn-bg option--item">
+                    Consulta
+                  </button>
+                  <button type="button" class="btn btn-bg option--item">
+                    Reporte
+                  </button>
+                  <button type="button" class="btn btn-bg option--item">
+                    Exportar
+                  </button>
+                </div>
+              </div>
+            </section>
+            <section class="section--container">
+              <div class="project--section">
+                <h2 class="section--title">.:Proyecto:.</h2>
+                <div class="project--container">
+                  <div class="project--item">
+                    <p class="project--item-label">Proyecto</p>
+                    <p class="project--item-value">Paquete 4 CV21-Ancash</p>
+                  </div>
+                  <div class="project--item">
+                    <p class="project--item-label">Fecha Reg.</p>
+                    <p class="project--item-value">30 / 06 / 2019</p>
+                    <i class="far fa-calendar-alt icon"></i>
+                  </div>
+                  <div class="project--item">
+                    <p class="project--item-label">Version</p>
+                    <p class="project--item-value text-center">1</p>
+                  </div>
+                  <div class="project--item">
+                    <p class="project--item-label">Observación</p>
+                    <p class="project--item-value">...</p>
+                  </div>
+                  <div class="project--item">
+                    <p class="project--item-label">Elaborado Por</p>
+                    <p class="project--item-value">Luis Soto Vargas</p>
+                  </div>
+                  <div class="project--item">
+                    <p class="project--item-label">Estado</p>
+                    <p class="project--item-value">Vigente</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="section--container">
+              <div class="route--section">
+                <h2 class="section--title">.:Rutas:.</h2>
+                <div class="table--container">
+                  <div class="table--row head route--row">
+                    <p class="table--item">Número</p>
+                    <p class="table--item">Cod. Ruta Py.</p>
+                    <p class="table--item">Cod. Ruta</p>
+                    <p class="table--item min-row-width">Nombre de la Ruta</p>
+                    <p class="table--item">Prog. Inicial</p>
+                    <p class="table--item">Prog. Final</p>
+                  </div>
+                  <div class="table--body">
+                    <div class="table--row route--row body">
+                      <p class="table--item body">001</p>
+                      <p class="table--item body">Rut001</p>
+                      <p class="table--item body">AN-112</p>
+                      <p class="table--item body min-row-width">De Emp. PE 16 (Dv. Ocros)</p>
+                      <p class="table--item body">0 + 000</p>
+                      <p class="table--item body">138 + 170</p>
+                    </div>
+                    <div class="table--row route--row body">
+                      <p class="table--item body">002</p>
+                      <p class="table--item body">Rut002</p>
+                      <p class="table--item body">AN-1314</p>
+                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
+                      <p class="table--item body">0 + 000</p>
+                      <p class="table--item body">86 + 650</p>
+                    </div>
+                    <div class="table--row route--row body">
+                      <p class="table--item body">001</p>
+                      <p class="table--item body">Rut001</p>
+                      <p class="table--item body">AN-112</p>
+                      <p class="table--item body min-row-width">De Emp. PE 16 (Dv. Ocros)</p>
+                      <p class="table--item body">0 + 000</p>
+                      <p class="table--item body">138 + 170</p>
+                    </div>
+                    <div class="table--row route--row body">
+                      <p class="table--item body">002</p>
+                      <p class="table--item body">Rut002</p>
+                      <p class="table--item body">AN-1314</p>
+                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
+                      <p class="table--item body">0 + 000</p>
+                      <p class="table--item body">86 + 650</p>
+                    </div>
+                    <div class="table--row route--row body">
+                      <p class="table--item body">001</p>
+                      <p class="table--item body">Rut001</p>
+                      <p class="table--item body">AN-112</p>
+                      <p class="table--item body min-row-width">De Emp. PE 16 (Dv. Ocros)</p>
+                      <p class="table--item body">0 + 000</p>
+                      <p class="table--item body">138 + 170</p>
+                    </div>
+                    <div class="table--row route--row body">
+                      <p class="table--item body">002</p>
+                      <p class="table--item body">Rut002</p>
+                      <p class="table--item body">AN-1314</p>
+                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
+                      <p class="table--item body">0 + 000</p>
+                      <p class="table--item body">86 + 650</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="section--container">
+              <div class="stretch--section">
+                <h2 class="section--title">.:Tramos:.</h2>
+                <div class="table--container">
+                  <div class="table--row head stretch--row">
+                    <p class="table--item">Número</p>
+                    <p class="table--item">Cod. Tramo</p>
+                    <p class="table--item">Nombre de Tramo</p>
+                    <p class="table--item">Prog. Inicial</p>
+                    <p class="table--item">Prog. Final</p>
+                  </div>
+                  <div class="table--row stretch--row body">
+                    <p class="table--item body">003</p>
+                    <p class="table--item body">001</p>
+                    <p class="table--item body">Emp. An 112-Copa</p>
+                    <p class="table--item body">0 + 000</p>
+                    <p class="table--item body">31 + 650</p>
+                  </div>
+                  <div class="table--row stretch--row body">
+                    <p class="table--item body">004</p>
+                    <p class="table--item body">002</p>
+                    <p class="table--item body">Copa-Emp. PE 3N</p>
+                    <p class="table--item body">31 + 650</p>
+                    <p class="table--item body">59 + 250</p>
+                  </div>
+                  <div class="table--row stretch--row body">
+                    <p class="table--item body">005</p>
+                    <p class="table--item body">003</p>
+                    <p class="table--item body">Dv. Ruta AN 512-Emp. PE 3N</p>
+                    <p class="table--item body">59 + 250</p>
+                    <p class="table--item body">86 + 650</p>
+                  </div>
+                  <div class="table--row stretch--row body">
+                    <p class="table--item body">006</p>
+                    <p class="table--item body">004</p>
+                    <p class="table--item body">Re. Ruta AN 520-Emp. PE 3N</p>
+                    <p class="table--item body">59 + 250</p>
+                    <p class="table--item body">86 + 650</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- ----- Ends Main Content ----- -->
+    </div>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        $("#sidebarCollapse").on('click', function() {
+          $("#sidebar").toggleClass('active')
+          console.log('active')
+        })
+      });
+    </script>
+  </body>
+</html>

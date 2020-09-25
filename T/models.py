@@ -1,24 +1,37 @@
 from django.db import models
 
+class Persona(models.Model):
+  codPersona = models.AutoField(primary_key=True)
+  tipPersona = models.CharField(max_length=1)
+  desPersona = models.CharField(max_length=100)
+
+
+class Cliente(models.Model):
+  codCliente = models.AutoField(primary_key=True, db_column="codCliente")
+  nroRuc = models.CharField(max_length=20)
+  vigente = models.CharField(max_length=1, default="1")
+  codPersona = models.OneToOneField(Persona, on_delete=models.CASCADE, db_column="codPersona")
+
+
 # Create your models here.
 class Empleado(models.Model):
-  codPers = models.IntegerField(primary_key=True, )
-  direcc = models.CharField(max_length=100, blank=False)
-  hobby = models.TextField(blank=False)
+  codEmple = models.AutoField(primary_key=True)
+  direcc = models.CharField(max_length=100)
+  hobby = models.CharField(max_length=2000)
   fecNac = models.DateField()
-  dni = models.CharField(max_length=20, blank=False)
+  dni = models.CharField(max_length=20)
   nroCIP = models.CharField(max_length=10)
   fecCIPVig = models.DateField()
-  licCond = models.CharField(max_length=1)
+  licCond = models.CharField(max_length=1, default="1")
   observac = models.CharField(max_length=300)
-  vigente = models.CharField(max_length=1)
-
+  vigente = models.CharField(max_length=1, default="1")
+  codPersona = models.OneToOneField(Persona, on_delete=models.CASCADE, db_column="codPersona")
   def __str__(self):
     return self.dni
 
 
 class Proyecto(models.Model):
-  codPyto = models.IntegerField(primary_key=True)
+  codPyto = models.AutoField(primary_key=True)
   codSNIP = models.CharField(max_length=10)
   fecReg = models.DateField()
   codFase = models.IntegerField()
@@ -29,12 +42,11 @@ class Proyecto(models.Model):
   numInforEntrg = models.IntegerField()
   estPyto = models.IntegerField()
   fecEstado = models.DateField()
-  nomPyto = models.TextField()
-  emplJefeProj = models.ForeignKey(Empleado, on_delete=models.CASCADE)
-  valRefer = models.DecimalField(max_digits=6, decimal_places=2)
-  costoTotal = models.DecimalField(max_digits=6, decimal_places=2)
-  costDirecto = models.DecimalField(max_digits=6, decimal_places=2)
-  costGGen = models.DecimalField(max_digits=6, decimal_places=2)
+  nomPyto = models.CharField(max_length=1000)
+  valRefer = models.DecimalField(max_digits=14, decimal_places=12)
+  costoTotal = models.DecimalField(max_digits=14, decimal_places=12)
+  costDirecto = models.DecimalField(max_digits=14, decimal_places=12)
+  costGGen = models.DecimalField(max_digits=14, decimal_places=12)
   costImp = models.CharField(max_length=100)
   costPenalid = models.CharField(max_length=100)
   codDpto = models.CharField(max_length=2)
@@ -45,21 +57,21 @@ class Proyecto(models.Model):
   rutaDoc = models.CharField(max_length=300)
   codObjc = models.IntegerField()
   vigente = models.CharField(max_length=1)
-  codPersona = models.IntegerField(blank=True, null=True)
+  codCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, db_column="codCliente")
+  emplJefeProj = models.ForeignKey(Empleado, on_delete=models.CASCADE, db_column="emplJefeProj")
 
   def __str__(self):
     return self.nomPyto
 
 
 class Ruta(models.Model):
-  codPyto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
-  codRutaPy = models.IntegerField(primary_key=True)
-  nroVersion = models.IntegerField()
+  codRutaPy = models.AutoField(primary_key=True)
+  nroVersion = models.IntegerField(default=1)
   codRuta = models.CharField(max_length=20)
   fechaRegistro = models.DateField()
   denominacionRuta = models.CharField(max_length=100)
   denominacionCortoRuta = models.CharField(max_length=100)
-  nroKms = models.DecimalField(max_digits=6, decimal_places=2)
+  nroKms = models.DecimalField(max_digits=18, decimal_places=13)
   zonaGPS = models.CharField(max_length=25)
   progInicio = models.CharField(max_length=25)
   progFinal = models.CharField(max_length=25)
@@ -71,18 +83,18 @@ class Ruta(models.Model):
   altitudFinalRuta = models.CharField(max_length=25)
   observacionRuta = models.CharField(max_length=500)
   vigencia = models.CharField(max_length=1)
-  elaboradorPor = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+  codPyto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, db_column="codPyto")
+  elaboradorPor = models.ForeignKey(Empleado, on_delete=models.CASCADE, db_column="elaboradorPor")
 
 
 class Tramo(models.Model):
-  codRutaPy = models.ForeignKey(Ruta, on_delete=models.CASCADE)
-  codTramoPy = models.IntegerField(primary_key=True)
-  nroVersion = models.IntegerField()
+  codTramoPy = models.AutoField(primary_key=True)
+  nroVersion = models.IntegerField(default=1)
   codTramo = models.CharField(max_length=20)
   fechaRegistro = models.DateField()
   denominacionTramo = models.CharField(max_length=100)
   denominacionCortoTramo = models.CharField(max_length=100)
-  nroKmsTramo = models.DecimalField(max_digits=6, decimal_places=2)
+  nroKmsTramo = models.DecimalField(max_digits=18, decimal_places=13)
   zonaGPS = models.CharField(max_length=25)
   progInicio = models.CharField(max_length=25)
   progFin = models.CharField(max_length=25)
@@ -94,3 +106,5 @@ class Tramo(models.Model):
   altitudFinalTramo = models.CharField(max_length=25)
   observacionTramo = models.CharField(max_length=500)
   vigencia = models.CharField(max_length=1)
+  codPyto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, db_column="codPyto")
+  codRutaPy = models.ForeignKey(Ruta, on_delete=models.CASCADE, db_column="codRutaPy")

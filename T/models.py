@@ -7,13 +7,12 @@ class Persona(models.Model):
 
 
 class Cliente(models.Model):
-  codCliente = models.AutoField(primary_key=True, db_column="codCliente")
+  codCliente = models.AutoField(primary_key=True)
   nroRuc = models.CharField(max_length=20)
   vigente = models.CharField(max_length=1, default="1")
   codPersona = models.OneToOneField(Persona, on_delete=models.CASCADE, db_column="codPersona")
 
 
-# Create your models here.
 class Empleado(models.Model):
   codEmple = models.AutoField(primary_key=True)
   direcc = models.CharField(max_length=100)
@@ -26,8 +25,6 @@ class Empleado(models.Model):
   observac = models.CharField(max_length=300)
   vigente = models.CharField(max_length=1, default="1")
   codPersona = models.OneToOneField(Persona, on_delete=models.CASCADE, db_column="codPersona")
-  def __str__(self):
-    return self.dni
 
 
 class Proyecto(models.Model):
@@ -60,9 +57,6 @@ class Proyecto(models.Model):
   codCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, db_column="codCliente")
   emplJefeProj = models.ForeignKey(Empleado, on_delete=models.CASCADE, db_column="emplJefeProj")
 
-  def __str__(self):
-    return self.nomPyto
-
 
 class Ruta(models.Model):
   codRutaPy = models.AutoField(primary_key=True)
@@ -86,6 +80,9 @@ class Ruta(models.Model):
   codPyto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, db_column="codPyto")
   elaboradorPor = models.ForeignKey(Empleado, on_delete=models.CASCADE, db_column="elaboradorPor")
 
+  class Meta:
+    unique_together = [['codPyto', 'codRutaPy', 'nroVersion']]
+
 
 class Tramo(models.Model):
   codTramoPy = models.AutoField(primary_key=True)
@@ -108,3 +105,6 @@ class Tramo(models.Model):
   vigencia = models.CharField(max_length=1)
   codPyto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, db_column="codPyto")
   codRutaPy = models.ForeignKey(Ruta, on_delete=models.CASCADE, db_column="codRutaPy")
+
+  class Meta:
+    unique_together = [['codPyto', 'codRutaPy', 'codTramoPy', 'nroVersion']]

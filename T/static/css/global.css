@@ -287,15 +287,25 @@ a, a:hover, a:focus {
   cursor: pointer;
   margin: 0;
   padding: 0;
+  text-align: left;
 
+}
+.mi-menu li img{
+  color: white;
 }
 .boton{
   color: black;
   width: 111px;
   height: 30px;
   border: 1px black;
+  text-align: left;
+  background:#e8e8e8;
 }
+.boton:hover{
+ color: black;
+ background:#bcd9f7;
 
+}
 
 /* --- modal --- */
 .modal-container{

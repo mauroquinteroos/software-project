@@ -124,6 +124,7 @@ let ingresar=document.getElementById('ingresar');
 ingresar.addEventListener('click',()=>{
 printmodal(`
 <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+              <form class="formulario" id="formulario">            
                 <div class="row tab-item">
                   <div class="col-2 pad">
                     <label>Cod.Ruta:</label>
@@ -229,7 +230,10 @@ printmodal(`
                     </select>
                   </div>
                 </div>
-              </div>  `)
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <button type="" class="btn btn-light">Cancelar</button>
+              </form>
+</div>  `)
 });
 let eliminar=document.getElementById('delete');
 eliminar.addEventListener('click',()=>{

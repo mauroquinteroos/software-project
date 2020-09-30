@@ -25,22 +25,6 @@ def get_tramo(codTramo):
   tramo = Tramo.objects.get(codTramoPy=codTramo)
   return tramo
 
-# prueba
-projects = [
-  {
-    'id': 123,
-    'rutas': 'message 1'
-  },
-  {
-    'id': 245,
-    'rutas': 'message 2'
-  },
-  {
-    'id': 567,
-    'rutas': 'message 3'
-  },
-]
-
 # Controller
 def proyectos(request):
   projects = get_projects()
@@ -52,5 +36,5 @@ def rutas_by_project(request, cod_project):
   return render(request, 'rutas.html')
 
 
-def tramos_by_project(request):
-  return render(request, 'rutas.html')
+def tramos_by_ruta(request, cod_ruta):
+  return render(request, 'tramos.html')

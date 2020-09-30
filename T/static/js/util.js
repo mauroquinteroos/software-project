@@ -90,7 +90,7 @@ const printmodal = (content) => {
     if (e.target === modalContainerEl) removemodal();
   });
 };
-//imgresar ruta
+//ingresar ruta
 let ingresar = document.getElementById("ingresar");
 ingresar.addEventListener("click", () => {
   printmodal(`
@@ -206,6 +206,7 @@ ingresar.addEventListener("click", () => {
               </form>
 </div>  `);
 });
+//Eliminar ruta
 let eliminar = document.getElementById("delete");
 eliminar.addEventListener("click", () => {
   printmodal(`

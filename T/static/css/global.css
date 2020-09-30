@@ -185,10 +185,6 @@ a, a:hover, a:focus {
   font-weight: 700;
   background-color: var(--white-clr);
 }
-.rutas{
-  display: flex;
-  justify-content:space-between;
-}
 .table--row.body:nth-of-type(2n+1) {
   background: #f9f9f9;
 }
@@ -210,14 +206,12 @@ a, a:hover, a:focus {
 .min-row-width {
   min-width: 20.375rem;
 }
-
-
 /* --- Project Container --- */
 .project--container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 150px 250px 180px;
   grid-template-rows: auto;
-  gap: .5rem 1rem;
+  gap: 1rem;
   padding-top: 1rem;
 }
 .project--item {
@@ -227,25 +221,19 @@ a, a:hover, a:focus {
   font-size: .9rem;
 }
 .project--item:nth-of-type(1) {
-  grid-column: 1 / span 3;
+  grid-column: span 1;
 }
 .project--item:nth-of-type(2) {
-  grid-column: 4 / span 1;
+  grid-column: span 1;
 }
 .project--item:nth-of-type(3) {
-  grid-column: 1 / span 1;
+  grid-column: span 1;
 }
 .project--item:nth-of-type(4) {
-  grid-column: 2 / span 3;
+  grid-column: span 1;
 }
-.project--item:nth-of-type(5) {
-  grid-column: 1 / span 3;
-}
-.project--item:nth-of-type(6) {
-  grid-column: 4 / span 1;
-}
+
 .project--item-label {
-  min-width: 6.18rem;
   margin: 0 .5rem 0 0;
   font-weight: 700;
 }
@@ -261,24 +249,18 @@ a, a:hover, a:focus {
   margin-left: .5rem;
   color: var(--text-clr);
 }
-/* --- Route Section --- */
-.route--row {
-  display: grid;
-  grid-template-columns: 7.5rem 12.5rem 7.5rem auto repeat(2,7.5rem);
-}
-.route--row-py {
+/* --- Project Table --- */
+.project--row {
   display: grid;
   grid-template-columns: 5rem 20rem auto repeat(4,7.5rem);
 }
-.route--row-py.body {
+.project--row.body {
   grid-template-rows: 5.1875rem;
-  max-height: 5.1875rem;
-  transition: .3s;
 }
-/* --- Stretch Section --- */
-.stretch--row {
+/* --- Route Table --- */
+.route--row {
   display: grid;
-  grid-template-columns: 7.5rem 12.5rem auto repeat(2,7.5rem);
+  grid-template-columns: 5rem 7.5rem auto repeat(2,7.5rem);
 }
 /* ---click derecho --- */
 .mi-menu{
@@ -317,23 +299,18 @@ a, a:hover, a:focus {
   width:100%;
   height: 100vh;
   display: flex;
-
 }
-
 .modal-content{
-
   background:#fff;
   width: 100%;
   max-width: 700px;
   margin:auto;
   padding: 10px;
 }
-
 .delete{
   text-align: center;
   margin: 20px;
-  }
-  .delete img{
-    margin: 0 0 15px 0;
-  
-  }
+}
+.delete img{
+  margin: 0 0 15px 0;
+}

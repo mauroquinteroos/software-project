@@ -54,10 +54,9 @@
         <div class="content--container">
           <div class="content--container-bg">
             <section class="section--container">
-              <div class="route--section">
                 <h2 class="section--title">.:Proyectos:.</h2>
                 <div class="table--container">
-                  <div class="table--row head route--row-py">
+                  <div class="table--row head project--row">
                     <p class="table--item">Código</p>
                     <p class="table--item">Denominación corta</p>
                     <p class="table--item">Observación</p>
@@ -68,14 +67,14 @@
                   </div>
                   <div class="table--body">
                     {%for project in projects %}
-                      <a href="/proyecto/rutas/{{project.codPyto}}" class="table--row route--row-py body">
+                      <a href="/proyecto/rutas/{{project.codPyto}}" class="table--row project--row body">
                         <p class="table--item body">{{project.codPyto}}</p>
                         <p class="table--item body">{{project.nomPyto}}</p>
                         <p class="table--item body">{{project.observac}}</p>
                         <p class="table--item body">{{project.codFase}}</p>
                         <p class="table--item body">{{project.codNivel}}</p>
                         <p class="table--item body">{{project.codFuncion}}</p>
-                        {% if project.vigente == 1 %}
+                        {% if project.vigente == '1' %}
                           <p class="table--item body">Vigente</p>
                         {% else %}
                           <p class="table--item body">No vigente</p>
@@ -84,7 +83,6 @@
                     {% endfor %}
                   </div>
                 </div>
-              </div>
             </section>
           </div>
         </div>

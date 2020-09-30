@@ -62,56 +62,48 @@
             <section class="section--container">
               <div class="project--section">
                 <h2 class="section--title">.:Proyecto:.</h2>
-                <!-- <div class="project--container">
+                <div class="project--container">
                   <div class="project--item">
                     <p class="project--item-label">Proyecto</p>
-                    <p class="project--item-value">{{ proyecto.nomPyto }}</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Fecha Reg.</p>
-                    <p class="project--item-value">{{ proyecto.fecReg }}</p>
-                    <i class="far fa-calendar-alt icon"></i>
+                    <p class="project--item-value">{{ project.nomPyto }}</p>
                   </div>
                   <div class="project--item">
                     <p class="project--item-label">Version</p>
                     <p class="project--item-value text-center">1</p>
                   </div>
                   <div class="project--item">
-                    <p class="project--item-label">Observación</p>
-                    <p class="project--item-value">{{ proyecto.observac }}</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Elaborado Por</p>
-                    <p class="project--item-value">Luis Soto Vargas</p>
+                    <p class="project--item-label">Fecha Reg.</p>
+                    <p class="project--item-value">{{ project.fecReg }}</p>
+                    <i class="far fa-calendar-alt icon"></i>
                   </div>
                   <div class="project--item">
                     <p class="project--item-label">Estado</p>
-                    {% if proyecto.vigente == 'A' %}
+                    {% if project.vigente == '1' %}
                       <p class="project--item-value">Vigente</p>
+                    {% else %}
+                      <p class="project--item-value">No Vigente</p>
                     {% endif %}
                   </div>
-                </div> -->
+                </div>
               </div>
             </section>
             <section class="section--container">
               <div class="route--section">
-                <div class="rutas">
+                <div class="d-flex justify-content-between">
                   <h2 class="section--title">.:Rutas:.</h2>
-                  <button type="button" class="btn btn-primary" id="ingresar">Registrar Ruta</button>
+                  <button type="button" class="btn btn-primary btn-bg" id="ingresar">Registrar Ruta</button>
                 </div>
                 <div class="table--container">
                   <div class="table--row  head route--row">
-                    <p class="table--item">Número</p>
-                    <p class="table--item">Cod. Ruta Py.</p>
+                    <p class="table--item">Código</p>
                     <p class="table--item">Cod. Ruta</p>
                     <p class="table--item min-row-width">Nombre de la Ruta</p>
                     <p class="table--item">Prog. Inicial</p>
                     <p class="table--item">Prog. Final</p>
                   </div>
                   <div class="table--body">
-                  <!--   {% for ruta in rutas %}
+                    {% for ruta in rutas %}
                       <div class="table--row click-derecho route--row body">
-                        <p class="table--item body">{{ ruta.nroVersion }}</p>
                         <p class="table--item body">{{ ruta.codRutaPy }}</p>
                         <p class="table--item body">{{ ruta.codRuta }}</p>
                         <p class="table--item body min-row-width">{{ ruta.denominacionRuta }}</p>
@@ -119,47 +111,6 @@
                         <p class="table--item body">{{ ruta.progFinal }}</p>
                       </div>
                     {% endfor %}
-                    -->
-                    <div class="table--row click-derecho route--row body">
-                      <p class="table--item body">002</p>
-                      <p class="table--item body">Rut002</p>
-                      <p class="table--item body">AN-1314</p>
-                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">86 + 650</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">001</p>
-                      <p class="table--item body">Rut001</p>
-                      <p class="table--item body">AN-112</p>
-                      <p class="table--item body min-row-width">De Emp. PE 16 (Dv. Ocros)</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">138 + 170</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">002</p>
-                      <p class="table--item body">Rut002</p>
-                      <p class="table--item body">AN-1314</p>
-                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">86 + 650</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">001</p>
-                      <p class="table--item body">Rut001</p>
-                      <p class="table--item body">AN-112</p>
-                      <p class="table--item body min-row-width">De Emp. PE 16 (Dv. Ocros)</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">138 + 170</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">002</p>
-                      <p class="table--item body">Rut002</p>
-                      <p class="table--item body">AN-1314</p>
-                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">86 + 650</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -173,6 +124,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src={% static 'js/main.js' %}></script>
     <script src={% static 'js/util.js' %}></script>
   </body>
 </html>

@@ -22,13 +22,13 @@
         </div>
         <ul class="list-unstyled sidebar--list" id="sidebar-list">
           <li>
-            <a class="sidebar--item active" href="/ruta">
-              <i class="fas fa-road fa-fw icon-sidebar"></i>
-              <span class="sidebar--item-text">Preeliminar</span>
+            <a class="sidebar--item" href="/ruta">
+              <i class="fas fa-tasks icon-sidebar"></i>
+              <span class="sidebar--item-text">Proyectos</span>
             </a>
           </li>
           <li>
-            <a class="sidebar--item" href="/ruta/reconocimiento">
+            <a class="sidebar--item active" href="/ruta/reconocimiento">
               <i class="fas fa-map-marker-alt fa-fw icon-sidebar"></i>
               <span class="sidebar--item-text">Reconocimiento</span>
             </a>
@@ -53,12 +53,10 @@
         </nav>
         <div class="content--container">
           <div class="content--container-bg">
-           
-            
             <section class="section--container">
               <div class="project--section">
                 <h2 class="section--title">.:Proyecto:.</h2>
-                <div class="project--container">
+                <!-- <div class="project--container">
                   <div class="project--item">
                     <p class="project--item-label">Proyecto</p>
                     <p class="project--item-value">{{ proyecto.nomPyto }}</p>
@@ -86,7 +84,7 @@
                       <p class="project--item-value">Vigente</p>
                     {% endif %}
                   </div>
-                </div>
+                </div> -->
               </div>
             </section>
             <section class="section--container">
@@ -102,7 +100,7 @@
                     <p class="table--item">Prog. Final</p>
                   </div>
                   <div class="table--body">
-                    {% for ruta in rutas %}
+                    <!-- {% for ruta in rutas %}
                       <div class="table--row route--row body">
                         <p class="table--item body">{{ ruta.nroVersion }}</p>
                         <p class="table--item body">{{ ruta.codRutaPy }}</p>
@@ -111,7 +109,7 @@
                         <p class="table--item body">{{ ruta.progInicio }}</p>
                         <p class="table--item body">{{ ruta.progFinal }}</p>
                       </div>
-                    {% endfor %}
+                    {% endfor %} -->
                     <div class="table--row route--row body">
                       <p class="table--item body">002</p>
                       <p class="table--item body">Rut002</p>
@@ -156,7 +154,6 @@
                 </div>
               </div>
             </section>
-           
           </div>
         </div>
       </div>

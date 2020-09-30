@@ -23,8 +23,8 @@
         <ul class="list-unstyled sidebar--list" id="sidebar-list">
           <li>
             <a class="sidebar--item active" href="/ruta">
-              <i class="fas fa-road fa-fw icon-sidebar"></i>
-              <span class="sidebar--item-text">Preeliminar</span>
+              <i class="fas fa-tasks icon-sidebar"></i>
+              <span class="sidebar--item-text">Proyectos</span>
             </a>
           </li>
           <li>
@@ -57,43 +57,35 @@
               <div class="route--section">
                 <h2 class="section--title">.:Proyectos:.</h2>
                 <div class="table--container">
-                  <div class="table--row head route--rowpy">
+                  <div class="table--row head route--row-py">
                     <p class="table--item">Código</p>
                     <p class="table--item">Denominación corta</p>
-                    <p class="table--item">Consorcio</p>
-                    <p class="table--item ">Fase</p>
+                    <p class="table--item">Observación</p>
+                    <p class="table--item">Fase</p>
                     <p class="table--item">Nivel</p>
                     <p class="table--item">Función</p>
-                    <p class="table--item">Taxonomía</p>
                     <p class="table--item">Estado</p>
                   </div>
                   <div class="table--body">
-                    <div class="table--row route--rowpy body">
-                      <p class="table--item body">001</p>
-                      <p class="table--item body">Mejoramiento de veredas</p>
-                      <p class="table--item body">Graña y Montero</p>
-                      <p class="table--item body ">Pre-inversión</p>
-                      <p class="table--item body">Perfil</p>
-                      <p class="table--item body">Transporte</p>
-                      <p class="table--item body">Carretera carrozable</p>
-                      <p class="table--item body">Segundo Informe Observado</p>
-                    </div>
-                    <div class="table--row route--rowpy body">
-                        <p class="table--item body">002</p>
-                        <p class="table--item body">Ampliación de carriles</p>
-                        <p class="table--item body">Odebrecht</p>
-                        <p class="table--item body ">Desarrollo</p>
-                        <p class="table--item body">Perfil</p>
-                        <p class="table--item body">Transporte</p>
-                        <p class="table--item body">Carretera carrozable</p>
-                        <p class="table--item body">Tercer Informe Observado</p>
-                      </div>
-                    
+                    {%for project in projects %}
+                      <a href="/proyecto/rutas/{{project.codPyto}}" class="table--row route--row-py body">
+                        <p class="table--item body">{{project.codPyto}}</p>
+                        <p class="table--item body">{{project.nomPyto}}</p>
+                        <p class="table--item body">{{project.observac}}</p>
+                        <p class="table--item body">{{project.codFase}}</p>
+                        <p class="table--item body">{{project.codNivel}}</p>
+                        <p class="table--item body">{{project.codFuncion}}</p>
+                        {% if project.vigente == 1 %}
+                          <p class="table--item body">Vigente</p>
+                        {% else %}
+                          <p class="table--item body">No vigente</p>
+                        {% endif %}
+                      </a>
+                    {% endfor %}
                   </div>
                 </div>
               </div>
             </section>
-           
           </div>
         </div>
       </div>

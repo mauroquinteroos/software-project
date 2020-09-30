@@ -1,34 +1,56 @@
+# Django
 from django.shortcuts import render
-from django.http import HttpResponse
+
+# Models
 from T.models import *
-from datetime import datetime
 
-import json
-
-# Llamar Templates
-def ruta(request):
-  proyecto = obtener_proyecto()
-  rutas = obtener_rutas(proyecto.codPyto)
-  return render(request, 'rutas.html', {'proyecto': proyecto, 'rutas': rutas})
-
-def reconocimiento(request):
-  return render(request, 'reconocimiento.html')
-
-def proyectos(request):
-  return render(request, 'proyecto.html')
-# Realizar consultas
-def get_empleado(): # Funcion de prueba, eliminarlo despues
-  empleado = Empleado.objects.get(dni = '77382771')
-  return empleado
-
-def obtener_proyecto():
-  proyecto = Proyecto.objects.get(codPyto = 2)
+# Consultas
+def get_projects():
+  proyecto = Proyecto.objects.all()
   return proyecto
 
-def obtener_rutas(cod):
-  rutas = Ruta.objects.filter(codPyto=cod)
+def get_rutas_project(codProject):
+  rutas = Ruta.objects.filter(codPyto=codProject)
   return rutas
 
-def obtener_tramos():
-  tramos = Tramo.objects.all()
+def get_ruta(codRuta):
+  ruta = Ruta.object.get(codRutaPy=codRuta)
+  return ruta
+
+def get_tramos_ruta(codRuta):
+  tramos = Tramo.objects.filter(codRutaPy=codRuta)
   return tramos
+
+def get_tramo(codTramo):
+  tramo = Tramo.objects.get(codTramoPy=codTramo)
+  return tramo
+
+# prueba
+projects = [
+  {
+    'id': 123,
+    'rutas': 'message 1'
+  },
+  {
+    'id': 245,
+    'rutas': 'message 2'
+  },
+  {
+    'id': 567,
+    'rutas': 'message 3'
+  },
+]
+
+# Controller
+def proyectos(request):
+  projects = get_projects()
+  return render(request, 'proyecto.html', {'projects': projects})
+
+
+def rutas_by_project(request, cod_project):
+  print(cod_project)
+  return render(request, 'rutas.html')
+
+
+def tramos_by_project(request):
+  return render(request, 'rutas.html')

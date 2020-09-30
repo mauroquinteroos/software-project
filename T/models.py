@@ -3,8 +3,8 @@ from django.db import models
 class Persona(models.Model):
   codPersona = models.AutoField(primary_key=True)
   tipPersona = models.CharField(max_length=1)
+  desCorto = models.CharField(max_length=30)
   desPersona = models.CharField(max_length=100)
-
 
 class Cliente(models.Model):
   codCliente = models.AutoField(primary_key=True)

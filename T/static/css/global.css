@@ -186,6 +186,10 @@ a, a:hover, a:focus {
   font-weight: 700;
   background-color: var(--white-clr);
 }
+.rutas{
+  display: flex;
+  justify-content:space-between;
+}
 .table--row.body:nth-of-type(2n+1) {
   background: #f9f9f9;
 }
@@ -207,6 +211,8 @@ a, a:hover, a:focus {
 .min-row-width {
   min-width: 20.375rem;
 }
+
+
 /* --- Project Container --- */
 .project--container {
   display: grid;
@@ -272,3 +278,50 @@ a, a:hover, a:focus {
   display: grid;
   grid-template-columns: 7.5rem 12.5rem auto repeat(2,7.5rem);
 }
+/* ---click derecho --- */
+.mi-menu{
+  display:none;
+  z-index:100;
+  position:absolute;
+  list-style: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+}
+.boton{
+  color: black;
+  width: 111px;
+  height: 30px;
+  border: 1px black;
+}
+
+
+/* --- modal --- */
+.modal-container{
+  background:rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  width:100%;
+  height: 100vh;
+  display: flex;
+
+}
+
+.modal-content{
+
+  background:#fff;
+  width: 100%;
+  max-width: 700px;
+  margin:auto;
+  padding: 10px;
+}
+
+.delete{
+  text-align: center;
+  margin: 20px;
+  }
+  .delete img{
+    margin: 0 0 15px 0;
+  
+  }

@@ -7,9 +7,9 @@ import json
 
 # Llamar Templates
 def ruta(request):
-  proyecto = obtener_proyecto()
-  rutas = obtener_rutas(proyecto.codPyto)
-  return render(request, 'rutas.html', {'proyecto': proyecto, 'rutas': rutas})
+  # proyecto = obtener_proyecto()
+  # rutas = obtener_rutas(proyecto.codPyto)
+  return render(request, 'rutas.html' )
 
 def reconocimiento(request):
   return render(request, 'reconocimiento.html')

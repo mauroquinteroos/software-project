@@ -41,7 +41,14 @@
           </li>
         </ul>
       </nav>
-      <!-- ----- Ends Sidebar ----- -->
+      <!-- ----- Ends Sidebar ------->
+      <ul id="mi-menu" class="mi-menu">
+
+        <li title="detalle"><button type="button" class="btn btn-success boton" id="detalle">detalle</button></li>
+        <li title="editar" ><button type="button" class="btn btn-success boton" id="editar"> <img src={% static 'img/edit.png' %} alt="">Editar</button></li>
+        <li title="Eliminar" ><button type="button" class="btn btn-danger boton" id="delete"><img src={% static 'img/trash.png' %} alt="">Eliminar</button></li>
+        
+       </ul>
       <!-- ----- Starts Main Content ----- -->
       <div id="content">
         <nav class="navbar navbar-expand navbar--collapse">
@@ -89,11 +96,15 @@
                 </div>
               </div>
             </section>
+            
             <section class="section--container">
               <div class="route--section">
-                <h2 class="section--title">.:Rutas:.</h2>
+                <div class="rutas">
+                  <h2 class="section--title">.:Rutas:.</h2>
+                  <button type="button" class="btn btn-primary" id="ingresar">Registrar Ruta</button>
+                </div>
                 <div class="table--container">
-                  <div class="table--row head route--row">
+                  <div class="table--row  head route--row">
                     <p class="table--item">Número</p>
                     <p class="table--item">Cod. Ruta Py.</p>
                     <p class="table--item">Cod. Ruta</p>
@@ -102,8 +113,8 @@
                     <p class="table--item">Prog. Final</p>
                   </div>
                   <div class="table--body">
-                    {% for ruta in rutas %}
-                      <div class="table--row route--row body">
+                  <!--   {% for ruta in rutas %}
+                      <div class="table--row click-derecho route--row body">
                         <p class="table--item body">{{ ruta.nroVersion }}</p>
                         <p class="table--item body">{{ ruta.codRutaPy }}</p>
                         <p class="table--item body">{{ ruta.codRuta }}</p>
@@ -112,7 +123,8 @@
                         <p class="table--item body">{{ ruta.progFinal }}</p>
                       </div>
                     {% endfor %}
-                    <div class="table--row route--row body">
+                    -->
+                    <div class="table--row click-derecho route--row body">
                       <p class="table--item body">002</p>
                       <p class="table--item body">Rut002</p>
                       <p class="table--item body">AN-1314</p>

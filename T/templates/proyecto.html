@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruta</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/eada1e3dde.js" crossorigin="anonymous"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href={% static 'css/global.css' %}>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- ----- Starts Sidebar ----- -->
+      <nav id="sidebar">
+        <div class="sidebar--header" id="sidebar-header">
+          <img src={% static 'img/user.png' %} alt="user icon">
+          <p>Quinteros Mauro Danilo</p>
+        </div>
+        <ul class="list-unstyled sidebar--list" id="sidebar-list">
+          <li>
+            <a class="sidebar--item active" href="/ruta">
+              <i class="fas fa-road fa-fw icon-sidebar"></i>
+              <span class="sidebar--item-text">Preeliminar</span>
+            </a>
+          </li>
+          <li>
+            <a class="sidebar--item" href="/ruta/reconocimiento">
+              <i class="fas fa-map-marker-alt fa-fw icon-sidebar"></i>
+              <span class="sidebar--item-text">Reconocimiento</span>
+            </a>
+          </li>
+          <li>
+            <a class="sidebar--item" href="/ruta/topografia">
+              <i class="fas fa-drafting-compass fa-fw icon-sidebar"></i>
+              <span class="sidebar--item-text">Topografía</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- ----- Ends Sidebar ----- -->
+      <!-- ----- Starts Main Content ----- -->
+      <div id="content">
+        <nav class="navbar navbar-expand navbar--collapse">
+          <div class="container-fluid">
+            <button type="button" id="sidebar-btn" class="btn btn-bg">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+        <div class="content--container">
+          <div class="content--container-bg">
+            <section class="section--container">
+              <div class="route--section">
+                <h2 class="section--title">.:Proyectos:.</h2>
+                <div class="table--container">
+                  <div class="table--row head route--rowpy">
+                    <p class="table--item">Código</p>
+                    <p class="table--item">Denominación corta</p>
+                    <p class="table--item">Consorcio</p>
+                    <p class="table--item ">Fase</p>
+                    <p class="table--item">Nivel</p>
+                    <p class="table--item">Función</p>
+                    <p class="table--item">Taxonomía</p>
+                    <p class="table--item">Estado</p>
+                  </div>
+                  <div class="table--body">
+                    <div class="table--row route--rowpy body">
+                      <p class="table--item body">001</p>
+                      <p class="table--item body">Mejoramiento de veredas</p>
+                      <p class="table--item body">Graña y Montero</p>
+                      <p class="table--item body ">Pre-inversión</p>
+                      <p class="table--item body">Perfil</p>
+                      <p class="table--item body">Transporte</p>
+                      <p class="table--item body">Carretera carrozable</p>
+                      <p class="table--item body">Segundo Informe Observado</p>
+                    </div>
+                    <div class="table--row route--rowpy body">
+                        <p class="table--item body">002</p>
+                        <p class="table--item body">Ampliación de carriles</p>
+                        <p class="table--item body">Odebrecht</p>
+                        <p class="table--item body ">Desarrollo</p>
+                        <p class="table--item body">Perfil</p>
+                        <p class="table--item body">Transporte</p>
+                        <p class="table--item body">Carretera carrozable</p>
+                        <p class="table--item body">Tercer Informe Observado</p>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
+           
+          </div>
+        </div>
+      </div>
+      <!-- ----- Ends Main Content ----- -->
+    </div>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src={% static 'js/javascript.js' %}></script>
+  </body>
+</html>

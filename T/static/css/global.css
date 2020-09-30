@@ -261,6 +261,12 @@ a, a:hover, a:focus {
   display: grid;
   grid-template-columns: 7.5rem 12.5rem 7.5rem auto repeat(2,7.5rem);
 }
+.route--rowpy{
+ 
+    display: grid;
+    grid-template-columns: 6.5rem auto 7.5rem 7.5rem 7.5rem 7.5rem 7.5rem 7.5rem;
+
+}
 /* --- Stretch Section --- */
 .stretch--row {
   display: grid;

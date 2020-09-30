@@ -14,7 +14,8 @@ def ruta(request):
 def reconocimiento(request):
   return render(request, 'reconocimiento.html')
 
-
+def proyectos(request):
+  return render(request, 'proyecto.html')
 # Realizar consultas
 def get_empleado(): # Funcion de prueba, eliminarlo despues
   empleado = Empleado.objects.get(dni = '77382771')

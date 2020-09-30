@@ -80,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': 'unfv-crud.cvimaoounjyz.us-east-2.rds.amazonaws.com:1521/orcl',
-        'USER': 'admin',
-        'PASSWORD': 'codergods',
+        'USER': 'GPYDEV',
+        'PASSWORD': '123',
         'TEST': {
             'USER': 'default_test',
             'TBLSPACE': 'default_test_tbls',

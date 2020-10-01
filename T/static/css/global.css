@@ -260,6 +260,27 @@ a, a:hover, a:focus {
 .ruta--container {
   grid-template-columns: 150px 250px 1fr;
 }
+/* --- Tree View --- */
+.tree--item.child {
+  padding-top: .5rem;
+}
+.tree--item.child-1 {
+  padding-left: 1.5rem;
+}
+.tree--item.child-2 {
+  padding-left: 3rem;
+}
+.tree--item-detail {
+  font-size: .8rem;
+}
+.icon-folder {
+  width: 1rem;
+  margin-right: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-clr);
+}
+
+
 /* ---click derecho --- */
 .mi-menu{
   display:none;

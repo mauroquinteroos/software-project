@@ -39,6 +39,7 @@ def proyectos(request):
 def rutas_by_project(request, cod_project):
   project = get_project(cod_project)
   rutas = get_rutas_project(cod_project)
+  print(rutas)
   return render(request, 'rutas.html', {'project': project, 'rutas': rutas})
 
 def tramos_by_ruta(request, cod_ruta):

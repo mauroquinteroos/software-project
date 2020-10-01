@@ -101,7 +101,7 @@
                   </div>
                   <div class="field--item">
                     <p class="field--item-label">Den. Corto</p>
-                    <p class="field--item-value text-center">{{ ruta.denominacionRuta }}</p>
+                    <p class="field--item-value">{{ ruta.denominacionRuta }}</p>
                   </div>
                 </div>
               </div>
@@ -113,8 +113,23 @@
                   <button type="button" class="btn btn-bg" id="ingresarTramo">Registrar Tramo</button>
                 </div>
               </div>
-              <div class="col-3 col-md-3">
-                Tree View
+              <div class="col-3 col-md-3 p-0">
+                <section class="tree--container">
+                  <div class="tree--item d-flex justify-content-start align-items-center m-0">
+                    <i class="fas fa-folder-open icon-folder"></i>
+                    <span class="m-0 tree--item-detail">{{ project.nomPyto }}</span>
+                  </div>
+                  <a href="/proyecto/rutas/{{project.codPyto}}" class="tree--item child child-1 d-flex justify-content-start align-items-center m-0">
+                    <i class="fas fa-folder-open icon-folder"></i>
+                    <span class="m-0 tree--item-detail">{{ ruta.codRuta }}</span>
+                  </a>
+                  {% for tramo in tramos %}
+                    <div class="tree--item child child-2 d-flex justify-content-start align-items-center">
+                      <i class="fas fa-folder icon-folder"></i>
+                      <p class="tree--item-detail m-0">{{ tramo.codTramo }}</p>
+                    </div>
+                  {% endfor %}
+                </section>
               </div>
               <div class="col-9 col-md-9 p-0" >
                 <div class="table--container m-0">

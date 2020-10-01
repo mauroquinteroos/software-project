@@ -93,10 +93,21 @@
                   <button type="button" class="btn btn-bg" id="ingresar">Registrar Ruta</button>
                 </div>
               </div>
-              <div class="col-3 col-md-3">
-                Tree View
+              <div class="col-3 col-md-3 p-0">
+                <section class="tree--container">
+                  <div class="tree--item d-flex justify-content-start align-items-center m-0">
+                    <i class="fas fa-folder-open icon-folder"></i>
+                    <span class="m-0 tree--item-detail">{{ project.nomPyto }}</span>
+                  </div>
+                  {% for ruta in rutas %}
+                    <a href="/proyecto/tramos/{{ruta.codRutaPy}}" class="tree--item child child-1 d-flex justify-content-start align-items-center">
+                      <i class="fas fa-folder icon-folder"></i>
+                      <p class="tree--item-detail m-0">{{ ruta.codRuta }}</p>
+                    </a>
+                  {% endfor %}
+                </section>
               </div>
-              <div class="col-9 col-md-9 p-0" >
+              <div class="col-9 col-md-9 p-0">
                 <div class="table--container m-0">
                   <div class="table--row  head route--row">
                     <p class="table--item">Código</p>

@@ -1,5 +1,7 @@
 # Django
 from django.shortcuts import render
+from django.http import HttpResponse
+import json
 
 # Models
 from T.models import *
@@ -50,6 +52,7 @@ def crearRuta(request):
   contexto={
     'form':form
   }
+ 
   return render(request,'rutas.html',contexto)
  
 
@@ -58,3 +61,26 @@ def tramos_by_ruta(request, cod_ruta):
   ruta = get_ruta(cod_ruta)
   project = get_project(ruta['codPyto_id'])
   return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project})
+
+
+def editarRuta(request, codRutaPy ):
+  rutas=rutas.objects.get(codRutaPy=codRutaPy)
+  if request.method=='GET':
+    form=Rutaform(instance=rutas)
+    contexto={
+      'form':form
+    }
+    return render(request,'rutas.html',contexto)
+
+def json_ruta(request, cod_ruta):
+  ruta = get_ruta(cod_ruta)
+  print(ruta)
+  rutajson={
+    'nombre':ruta['codRutaPy'],
+    'denominacion':ruta['denominacionRuta']
+  }
+  return HttpResponse(
+    json.dumps(rutajson),
+    
+    content_type='application/json'
+  )

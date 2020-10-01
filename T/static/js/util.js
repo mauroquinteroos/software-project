@@ -20,24 +20,35 @@ content.addEventListener("click", (event) => {
   }
 });
 let dato;
-const addmenu = (event) => {
+var codigo;
+const addmenu = async(event) => {
   event.preventDefault();
+   codigo=parseInt(event.target.parentNode.dataset.id);
+  
   menu.style.display = "block";
   menu.style.left = event.pageX + "px";
   menu.style.top = event.pageY + "px";
   console.log(event.target.parentNode);
   dato = event.target.parentNode;
+
+ 
 };
 const salirmenu = (event) => {
   menu.style.display = "";
   menu.style.left = "";
   menu.style.top = "";
+
 };
 container.forEach((element) => {
   element.addEventListener("contextmenu", addmenu);
   element.addEventListener("click", salirmenu);
 });
 
+async function getruta(codigo){
+const response=await fetch(`http://127.0.0.1:8000/proyecto/api/ruta/${codigo}`);
+const data=await response.json()
+return data;
+}
 // Crear elementos con atributos e hijo
 const createCustomElement = (element, attributes, children) => {
   let customElement = document.createElement(element);
@@ -110,3 +121,8 @@ eliminar.addEventListener("click", () => {
 
   menu.style.display = "none";
 });
+let detalle=document.getElementById("detalle");
+detalle.addEventListener('click',async()=>{
+  const ruta=await getruta(codigo);
+  console.log(ruta);
+})

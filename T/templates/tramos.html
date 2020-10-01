@@ -44,7 +44,6 @@
       </nav>
       <!-- ----- Ends Sidebar ------->
       <ul id="mi-menu" class="mi-menu">
-
         <li title="detalle"><button type="button" class="btn btn-success boton" id="detalle"><img src={% static 'img/perfiles.png' %} alt="">Detalle</button></li>
         <li title="editar" ><button type="button" class="btn btn-success boton" id="editar"> <img src={% static 'img/edit.png' %} alt="">Editar</button></li>
         <li title="Eliminar" ><button type="button" class="btn btn-danger boton" id="delete"><img src={% static 'img/trash.png' %} alt="">Eliminar</button></li>
@@ -63,138 +62,94 @@
             <section class="section--container">
               <div class="project--section">
                 <h2 class="section--title">.:Proyecto:.</h2>
-                <!-- <div class="project--container">
-                  <div class="project--item">
-                    <p class="project--item-label">Proyecto</p>
-                    <p class="project--item-value">{{ proyecto.nomPyto }}</p>
+                <div class="field--container project--container">
+                  <div class="field--item">
+                    <p class="field--item-label">Proyecto</p>
+                    <p class="field--item-value">{{ project.nomPyto }}</p>
                   </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Fecha Reg.</p>
-                    <p class="project--item-value">{{ proyecto.fecReg }}</p>
+                  <div class="field--item">
+                    <p class="field--item-label">Version</p>
+                    <p class="field--item-value text-center">1</p>
+                  </div>
+                  <div class="field--item">
+                    <p class="field--item-label">Fecha Reg.</p>
+                    <p class="field--item-value">{{ project.fecReg }}</p>
                     <i class="far fa-calendar-alt icon"></i>
                   </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Version</p>
-                    <p class="project--item-value text-center">1</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Observación</p>
-                    <p class="project--item-value">{{ proyecto.observac }}</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Elaborado Por</p>
-                    <p class="project--item-value">Luis Soto Vargas</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Estado</p>
-                    {% if proyecto.vigente == 'A' %}
-                      <p class="project--item-value">Vigente</p>
+                  <div class="field--item">
+                    <p class="field--item-label">Estado</p>
+                    {% if project.vigente == '1' %}
+                      <p class="field--item-value">Vigente</p>
+                    {% else %}
+                      <p class="field--item-value">No Vigente</p>
                     {% endif %}
                   </div>
-                </div> -->
-              </div>
-            </section>
-            <section class="section--container">
-              <div class="project--section">
-                <h2 class="section--title">.:Ruta:.</h2>
-                <!-- <div class="project--container">
-                  <div class="project--item">
-                    <p class="project--item-label">Proyecto</p>
-                    <p class="project--item-value">{{ proyecto.nomPyto }}</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Fecha Reg.</p>
-                    <p class="project--item-value">{{ proyecto.fecReg }}</p>
-                    <i class="far fa-calendar-alt icon"></i>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Version</p>
-                    <p class="project--item-value text-center">1</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Observación</p>
-                    <p class="project--item-value">{{ proyecto.observac }}</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Elaborado Por</p>
-                    <p class="project--item-value">Luis Soto Vargas</p>
-                  </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Estado</p>
-                    {% if proyecto.vigente == 'A' %}
-                      <p class="project--item-value">Vigente</p>
-                    {% endif %}
-                  </div>
-                </div> -->
+                </div>
               </div>
             </section>
             <section class="section--container">
               <div class="route--section">
-                <div class="rutas">
-                  <h2 class="section--title">.:Tramos:.</h2>
-                  <button type="button" class="btn btn-primary" id="ingresarTramo">Registrar Tramo</button>
+                <h2 class="section--title">.:Ruta:.</h2>
+                <div class="field--container ruta--container">
+                  <div class="field--item">
+                    <p class="field--item-label">Código</p>
+                    <p class="field--item-value">{{ ruta.codRutaPy }}</p>
+                  </div>
+                  <div class="field--item">
+                    <p class="field--item-label">Cód. Ruta Py</p>
+                    <p class="field--item-value">{{ ruta.codRuta }}</p>
+                  </div>
+                  <div class="field--item">
+                    <p class="field--item-label">Den. Corto</p>
+                    <p class="field--item-value">{{ ruta.denominacionRuta }}</p>
+                  </div>
                 </div>
-                <div class="table--container">
-                  <div class="table--row  head route--row">
-                    <p class="table--item">Número</p>
-                    <p class="table--item">Cod. Ruta Py.</p>
-                    <p class="table--item">Cod. Ruta</p>
-                    <p class="table--item min-row-width">Nombre de la Ruta</p>
+              </div>
+            </section>
+            <section class="section--container row m-0">
+              <div class="col-12 col-md-12 p-0 mb-5">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2 class="section--title m-0">.:Tramos:.</h2>
+                  <button type="button" class="btn btn-bg" id="ingresarTramo">Registrar Tramo</button>
+                </div>
+              </div>
+              <div class="col-3 col-md-3 p-0">
+                <section class="tree--container">
+                  <div class="tree--item d-flex justify-content-start align-items-center m-0">
+                    <i class="fas fa-folder-open icon-folder"></i>
+                    <span class="m-0 tree--item-detail">{{ project.nomPyto }}</span>
+                  </div>
+                  <a href="/proyecto/rutas/{{project.codPyto}}" class="tree--item child child-1 d-flex justify-content-start align-items-center m-0">
+                    <i class="fas fa-folder-open icon-folder"></i>
+                    <span class="m-0 tree--item-detail">{{ ruta.codRuta }}</span>
+                  </a>
+                  {% for tramo in tramos %}
+                    <div class="tree--item child child-2 d-flex justify-content-start align-items-center">
+                      <i class="fas fa-folder icon-folder"></i>
+                      <p class="tree--item-detail m-0">{{ tramo.codTramo }}</p>
+                    </div>
+                  {% endfor %}
+                </section>
+              </div>
+              <div class="col-9 col-md-9 p-0" >
+                <div class="table--container m-0">
+                  <div class="table--row  head tramo--row">
+                    <p class="table--item">Código</p>
+                    <p class="table--item">Cod. Tramo</p>
+                    <p class="table--item min-row-width">Nombre del Tramo</p>
                     <p class="table--item">Prog. Inicial</p>
                     <p class="table--item">Prog. Final</p>
                   </div>
                   <div class="table--body">
-                  <!--   {% for ruta in rutas %}
-                      <div class="table--row click-derecho route--row body">
-                        <p class="table--item body">{{ ruta.nroVersion }}</p>
-                        <p class="table--item body">{{ ruta.codRutaPy }}</p>
-                        <p class="table--item body">{{ ruta.codRuta }}</p>
-                        <p class="table--item body min-row-width">{{ ruta.denominacionRuta }}</p>
-                        <p class="table--item body">{{ ruta.progInicio }}</p>
-                        <p class="table--item body">{{ ruta.progFinal }}</p>
+                    {% for tramo in tramos %}
+                      <div class="table--row click-derecho tramo--row body">
+                        <p class="table--item body">{{ tramo.codTramoPy }}</p>
+                        <p class="table--item body">{{ tramo.codTramo }}</p>
+                        <p class="table--item body min-row-width">{{ tramo.denominacionTramo }}</p>
+                        <p class="table--item body">{{ tramo.progInicio }}</p>
+                        <p class="table--item body">{{ tramo.progFin }}</p>
                       </div>
                     {% endfor %}
-                    -->
-                    <div class="table--row click-derecho route--row body">
-                      <p class="table--item body">002</p>
-                      <p class="table--item body">Rut002</p>
-                      <p class="table--item body">AN-1314</p>
-                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">86 + 650</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">001</p>
-                      <p class="table--item body">Rut001</p>
-                      <p class="table--item body">AN-112</p>
-                      <p class="table--item body min-row-width">De Emp. PE 16 (Dv. Ocros)</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">138 + 170</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">002</p>
-                      <p class="table--item body">Rut002</p>
-                      <p class="table--item body">AN-1314</p>
-                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">86 + 650</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">001</p>
-                      <p class="table--item body">Rut001</p>
-                      <p class="table--item body">AN-112</p>
-                      <p class="table--item body min-row-width">De Emp. PE 16 (Dv. Ocros)</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">138 + 170</p>
-                    </div>
-                    <div class="table--row route--row body">
-                      <p class="table--item body">002</p>
-                      <p class="table--item body">Rut002</p>
-                      <p class="table--item body">AN-1314</p>
-                      <p class="table--item body min-row-width">De Congas hasta Huyto</p>
-                      <p class="table--item body">0 + 000</p>
-                      <p class="table--item body">86 + 650</p>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -208,6 +163,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src={% static 'js/main.js' %}></script>
     <script src={% static 'js/tramo.js' %}></script>
   </body>
 </html>

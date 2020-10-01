@@ -20,8 +20,8 @@ def get_rutas_project(codProject):
   return rutas
 
 def get_ruta(codRuta):
-  ruta = Ruta.objects.get(codRutaPy=codRuta)
-  return ruta
+  ruta = Ruta.objects.filter(codRutaPy=codRuta).values()
+  return ruta[0]
 
 def get_tramos_ruta(codRuta):
   tramos = Tramo.objects.filter(codRutaPy=codRuta)
@@ -43,12 +43,18 @@ def rutas_by_project(request, cod_project):
   form=Rutaform()
   return render(request, 'rutas.html', {'project': project, 'rutas': rutas, 'form':form})
 
-def tramos_by_ruta(request, cod_ruta):
-  return render(request, 'tramos.html')
-#prueba 
+
+
 def crearRuta(request):
   form=Rutaform()
   contexto={
     'form':form
   }
   return render(request,'rutas.html',contexto)
+ 
+
+def tramos_by_ruta(request, cod_ruta):
+  tramos = get_tramos_ruta(cod_ruta)
+  ruta = get_ruta(cod_ruta)
+  project = get_project(ruta['codPyto_id'])
+  return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project})

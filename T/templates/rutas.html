@@ -43,7 +43,6 @@
       </nav>
       <!-- ----- Ends Sidebar ------->
       <ul id="mi-menu" class="mi-menu">
-
         <li title="detalle"><button type="button" class="btn btn-success boton" id="detalle"><img src={% static 'img/perfiles.png' %} alt="">Detalle</button></li>
         <li title="editar" ><button type="button" class="btn btn-success boton" id="editar"> <img src={% static 'img/edit.png' %} alt="">Editar</button></li>
         <li title="Eliminar" ><button type="button" class="btn btn-danger boton" id="delete"><img src={% static 'img/trash.png' %} alt="">Eliminar</button></li>
@@ -62,26 +61,26 @@
             <section class="section--container">
               <div class="project--section">
                 <h2 class="section--title">.:Proyecto:.</h2>
-                <div class="project--container">
-                  <div class="project--item">
-                    <p class="project--item-label">Proyecto</p>
-                    <p class="project--item-value">{{ project.nomPyto }}</p>
+                <div class="field--container project--container">
+                  <div class="field--item">
+                    <p class="field--item-label">Proyecto</p>
+                    <p class="field--item-value">{{ project.nomPyto }}</p>
                   </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Version</p>
-                    <p class="project--item-value text-center">1</p>
+                  <div class="field--item">
+                    <p class="field--item-label">Version</p>
+                    <p class="field--item-value text-center">1</p>
                   </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Fecha Reg.</p>
-                    <p class="project--item-value">{{ project.fecReg }}</p>
+                  <div class="field--item">
+                    <p class="field--item-label">Fecha Reg.</p>
+                    <p class="field--item-value">{{ project.fecReg }}</p>
                     <i class="far fa-calendar-alt icon"></i>
                   </div>
-                  <div class="project--item">
-                    <p class="project--item-label">Estado</p>
+                  <div class="field--item">
+                    <p class="field--item-label">Estado</p>
                     {% if project.vigente == '1' %}
-                      <p class="project--item-value">Vigente</p>
+                      <p class="field--item-value">Vigente</p>
                     {% else %}
-                      <p class="project--item-value">No Vigente</p>
+                      <p class="field--item-value">No Vigente</p>
                     {% endif %}
                   </div>
                 </div>
@@ -91,7 +90,7 @@
               <div class="col-12 col-md-12 p-0 mb-5">
                 <div class="d-flex justify-content-between align-items-center">
                   <h2 class="section--title m-0">.:Rutas:.</h2>
-                  <button type="button" class="btn btn-primary btn-bg" id="ingresar">Registrar Ruta</button>
+                  <button type="button" class="btn btn-bg" id="ingresar">Registrar Ruta</button>
                 </div>
               </div>
               <div class="col-3 col-md-3">

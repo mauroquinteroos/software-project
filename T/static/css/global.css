@@ -313,3 +313,12 @@ a, a:hover, a:focus {
 .delete img{
   margin: 0 0 15px 0;
 }
+
+.modal-ingresar{
+  min-width: 700px;
+  margin:auto;
+ 
+}
+.max115{
+  width: 115px;
+}

@@ -62,10 +62,7 @@ def tramos_by_ruta(request, cod_ruta):
   ruta = get_ruta(cod_ruta)
   form = TramoForm()
   project = get_project(ruta['codPyto_id'])
-<<<<<<< HEAD
   return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project, 'form': form })
-=======
-  return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project})
 
 
 def editarRuta(request, codRutaPy ):
@@ -89,4 +86,3 @@ def json_ruta(request, cod_ruta):
     
     content_type='application/json'
   )
->>>>>>> 676f3272e07e4182dda82e548256d6fde9f7061f

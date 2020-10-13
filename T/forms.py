@@ -1,5 +1,5 @@
 from django import forms
-from .models import Ruta
+from .models import *
 class Rutaform(forms.ModelForm):
     class Meta:
         model=Ruta
@@ -35,6 +35,36 @@ class Rutaform(forms.ModelForm):
             'elaboradorPor':forms.Select(choices = elaborado), 
           
          # 'fechaRegistro':forms.DateField(attrs={'style':'width:100px;'})
+        }
+
+class TramoForm(forms.ModelForm):
+    class Meta:
+        model=Tramo
+        vigencia =( 
+        ("1", "uno"), 
+        ("2", "dos"), )
+        zonaGPS=(
+         ("1","1"),
+         ("2","2")   
+        ) 
+        fields=('__all__')
+        widgets={
+            'codTramo':forms.TextInput(attrs={'style':'width:40px;'}),
+            'fechaRegistro':forms.TextInput(attrs={'type':'date'}),
+            'vigencia':forms.Select(choices = vigencia), 
+            'denominacionTramo':forms.Textarea(attrs={'rows':'4','class':'form-control'}),
+            'denominacionCortoTramo':forms.TextInput(attrs={'style':'width:300px;'}),
+            'zonaGPS':forms.Select(choices = zonaGPS,attrs={'style':'width:80px;'}),
+            'nroKmsTramo':forms.TextInput(attrs={'style':'width:65px;'}),
+            'progInicio':forms.TextInput(attrs={'class':'max115'}),
+            'progFin':forms.TextInput(attrs={'class':'max115'}),
+            'latitudInicioTramo':forms.TextInput(attrs={'class':'max115'}),
+            'latitudFinalTramo':forms.TextInput(attrs={'class':'max115'}),
+            'longitudInicioTramo':forms.TextInput(attrs={'class':'max115'}),
+            'longitudFinalTramo':forms.TextInput(attrs={'class':'max115'}),
+            'altitudInicioTramo':forms.TextInput(attrs={'class':'max115'}),
+            'altitudFinalTramo':forms.TextInput(attrs={'class':'max115'}),
+            'observacionTramo':forms.Textarea(attrs={'rows':'4','class':'form-control'}),
         }
     
   

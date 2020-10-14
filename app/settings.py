@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'unfv-crud.cvimaoounjyz.us-east-2.rds.amazonaws.com:1521/orcl',
+        'NAME': 'unfv-software-dos.cjrws7apzwqn.us-west-2.rds.amazonaws.com:1521/ORCL',
         'USER': 'GPYDEV',
         'PASSWORD': '123',
         'TEST': {

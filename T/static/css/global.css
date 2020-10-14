@@ -208,7 +208,7 @@ a, a:hover, a:focus {
 /* --- Project Table --- */
 .project--row {
   display: grid;
-  grid-template-columns: 5rem 20rem auto repeat(4,7.5rem);
+  grid-template-columns: 5rem 10rem auto repeat(5,7.5rem);
 }
 .project--row.body {
   grid-template-rows: 5.1875rem;

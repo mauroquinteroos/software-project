@@ -6,11 +6,12 @@ import json
 # Models
 from T.models import *
 
-from .forms import Rutaform
+from .forms import *
 
 # Consultas
 def get_projects():
   proyecto = Proyecto.objects.all()
+  print(proyecto)
   return proyecto
 
 def get_project(codProject):
@@ -78,8 +79,9 @@ def crearRuta(request,idproyecto):
 def tramos_by_ruta(request, cod_ruta):
   tramos = get_tramos_ruta(cod_ruta)
   ruta = get_ruta(cod_ruta)
+  form = TramoForm()
   project = get_project(ruta['codPyto_id'])
-  return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project})
+  return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project, 'form': form })
 
 
 def editarRuta(request, codRutaPy ):

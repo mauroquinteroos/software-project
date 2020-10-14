@@ -21,7 +21,7 @@ class Rutaform(forms.ModelForm):
             'vigencia':forms.Select(choices = vigencia), 
             'denominacionRuta':forms.Textarea(attrs={'rows':'4','class':'form-control'}),
             'denominacionCortoRuta':forms.TextInput(attrs={'style':'width:300px;'}),
-            'nroKms':forms.TextInput(attrs={'style':'width:65px;','disabled':'true'}),
+            'nroKms':forms.TextInput(attrs={'style':'width:65px;'}),
             'zonaGPS':forms.Select(choices = zonaGPS,attrs={'style':'width:80px;'}),
             'progInicio':forms.TextInput(attrs={'class':'max115'}),
             'progFinal':forms.TextInput(attrs={'class':'max115'}),

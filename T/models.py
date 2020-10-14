@@ -85,7 +85,7 @@ class Proyecto(models.Model):
   fecReg = models.DateField()
   numInfor = models.IntegerField()
   numInforEntrg = models.IntegerField()
-  estPyto = models.IntegerField()
+  estPyto = models.ForeignKey(Estado, on_delete=models.CASCADE,db_column="estPyto")
   fecEstado = models.DateField()
   nomPyto = models.CharField(max_length=1000)
   valRefer = models.DecimalField(max_digits=14, decimal_places=12)

@@ -1,5 +1,5 @@
 # Django
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import json
 
@@ -47,14 +47,33 @@ def rutas_by_project(request, cod_project):
 
 
 
-def crearRuta(request):
-  form=Rutaform()
-  contexto={
-    'form':form
-  }
- 
+def crearRuta(request,idproyecto):
+  if request.method == 'GET':
+      form=Rutaform()
+      form = Rutaform(initial={'codpyto':idproyecto})
+      contexto={
+        'form':form
+      }
+  else:
+    form=Rutaform(request.POST)
+    if form.is_valid():
+      form.save()
+    return redirect('rutanueva', idproyecto = idproyecto)
   return render(request,'rutas.html',contexto)
  
+ def editarRuta(request, idproyecto,idruta):
+    ruta = Ruta.objects.get(codpyto=idproyecto,codrutapy = idruta)
+    if request.method =='GET':
+        form = Rutaform(instance = ruta)
+        contexto = {
+            'form': form
+        }
+    else:
+        form = Rutaform(request.POST, instance = ruta )
+        if form.is_valid():
+            form.save()
+            return redirect('ruta', idproyecto = idproyecto, idruta = idruta)
+    return render(request,'rutas.html',contexto)
 
 def tramos_by_ruta(request, cod_ruta):
   tramos = get_tramos_ruta(cod_ruta)

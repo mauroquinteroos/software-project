@@ -154,7 +154,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="formulario" id="formulario">
+        <form class="formulario" method="POST" id="formulario">
+          {% csrf_token %}
           <div class="row tab-item">
             <div class="col-2 pad">
               <label >{{ form.codRuta.label }}</label>
@@ -359,14 +360,14 @@
             <div class="col">
               <label>{{form.elaboradorPor.label}}</label>
               {{form.elaboradorPor}}
-      
+      <!-- codigo pyto y nro version -->
             </div>
           </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    
+          </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
       </div>
     </div>
   </div>

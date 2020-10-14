@@ -245,14 +245,19 @@
             <div class="col">
               <label>{{form.elaboradorPor.label}}</label>
               {{form.elaboradorPor}}
-      
             </div>
           </div>
+          <div class="row tab-item">
+            <div class="col">
+              {{form.codPyto.as_hidden}}
+              {{form.nroVersion.as_hidden}}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Ruta</button>
+          </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Guardar Ruta</button>
       </div>
     </div>
   </div>
@@ -360,7 +365,6 @@
             <div class="col">
               <label>{{form.elaboradorPor.label}}</label>
               {{form.elaboradorPor}}
-      <!-- codigo pyto y nro version -->
             </div>
           </div>
           <div class="modal-footer">

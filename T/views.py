@@ -34,6 +34,13 @@ def get_tramo(codTramo):
   tramo = Tramo.objects.get(codTramoPy=codTramo)
   return tramo
 
+def get_empleados():
+  empleados = Empleado.objects.all()
+  data=[]
+  for empleado in empleados:
+    data.append((empleado.codEmple,empleado.codPersona.desPersona))
+  print(tuple(data))
+  return tuple(data)
 
 # Controller
 def proyectos(request):
@@ -41,40 +48,24 @@ def proyectos(request):
   return render(request, 'proyecto.html', {'projects': projects})
 
 def rutas_by_project(request, cod_project):
-  project = get_project(cod_project)
-  rutas = get_rutas_project(cod_project)
-  form=Rutaform()
-  return render(request, 'rutas.html', {'project': project, 'rutas': rutas, 'form':form})
-
-
-
-def crearRuta(request,idproyecto):
   if request.method == 'GET':
-      form=Rutaform()
-      form = Rutaform(initial={'codpyto':idproyecto})
-      contexto={
-        'form':form
-      }
-  else:
+    project = get_project(cod_project)
+    rutas = get_rutas_project(cod_project)
+    form=Rutaform()
+    form= Rutaform(initial={
+      'codPyto':cod_project
+    })
+    print(form)
+    contexto = {'project': project, 'rutas': rutas, 'form':form}
+  else :
     form=Rutaform(request.POST)
+    print('no entro')
     if form.is_valid():
+      print(form)
       form.save()
-    return redirect('rutanueva', idproyecto = idproyecto)
-  return render(request,'rutas.html',contexto)
- 
- def editarRuta(request, idproyecto,idruta):
-    ruta = Ruta.objects.get(codpyto=idproyecto,codrutapy = idruta)
-    if request.method =='GET':
-        form = Rutaform(instance = ruta)
-        contexto = {
-            'form': form
-        }
-    else:
-        form = Rutaform(request.POST, instance = ruta )
-        if form.is_valid():
-            form.save()
-            return redirect('ruta', idproyecto = idproyecto, idruta = idruta)
-    return render(request,'rutas.html',contexto)
+    return redirect('ruta', cod_project = cod_project)
+  return render(request, 'rutas.html', contexto)
+
 
 def tramos_by_ruta(request, cod_ruta):
   tramos = get_tramos_ruta(cod_ruta)
@@ -83,15 +74,6 @@ def tramos_by_ruta(request, cod_ruta):
   project = get_project(ruta['codPyto_id'])
   return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project, 'form': form })
 
-
-def editarRuta(request, codRutaPy ):
-  rutas=rutas.objects.get(codRutaPy=codRutaPy)
-  if request.method=='GET':
-    form=Rutaform(instance=rutas)
-    contexto={
-      'form':form
-    }
-    return render(request,'rutas.html',contexto)
 
 def json_ruta(request, cod_ruta):
   ruta = get_ruta(cod_ruta)

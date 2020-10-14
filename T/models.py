@@ -35,6 +35,9 @@ class Empleado(models.Model):
   vigente = models.CharField(max_length=1, default="1")
   codPersona = models.OneToOneField(Persona, on_delete=models.CASCADE, db_column="codPersona")
 
+  def __str__(self):
+    return str(self.codPersona.desPersona)
+
 
 class Funcion(models.Model):
   codFuncion = models.AutoField(primary_key=True)

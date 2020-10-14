@@ -4,15 +4,11 @@ class Rutaform(forms.ModelForm):
     class Meta:
         model=Ruta
         vigencia =( 
-        ("1", "One"), 
-        ("2", "Two"), )
+        ("1", "1"), 
+        ("2", "2"), )
         zonaGPS=(
          ("1","1"),
          ("2","2")   
-        ) 
-        elaborado=(
-        ("1","ella"),
-        ("2","tu")    
         )
         fields=('__all__')
         widgets={
@@ -32,9 +28,6 @@ class Rutaform(forms.ModelForm):
             'altitudInicioRuta':forms.TextInput(attrs={'class':'max115'}),
             'altitudFinalRuta':forms.TextInput(attrs={'class':'max115'}),
             'observacionRuta':forms.Textarea(attrs={'rows':'4','class':'form-control'}),
-            'elaboradorPor':forms.Select(choices = elaborado), 
-          
-         # 'fechaRegistro':forms.DateField(attrs={'style':'width:100px;'})
         }
 
 class TramoForm(forms.ModelForm):

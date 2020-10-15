@@ -128,13 +128,13 @@
                         <p class="table--item body">{{ ruta.progFinal }}</p>
                         <ul class="mi-menu">
                           <li>
-                            <a class="btn btn-primary btn-bg" >
+                            <a href="/proyecto/rutas/{{project.codPyto}}" class="btn btn-primary btn-bg d-block" >
                               <img src={% static 'img/edit.png' %} alt="">
                               Editar
                             </a>
                           </li>
                           <li>
-                            <a href="/proyecto/eliminarRuta/{{project.codPyto}}/{{ruta.codRutaPy}}"class="btn btn-primary btn-bg" >
+                            <a href="/proyecto/eliminarRuta/{{project.codPyto}}/{{ruta.codRutaPy}}" class="btn btn-primary btn-bg d-block" >
                               <img src={% static 'img/trash.png' %} alt="">
                               Eliminar
                             </a>

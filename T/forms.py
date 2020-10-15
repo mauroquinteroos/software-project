@@ -34,8 +34,8 @@ class TramoForm(forms.ModelForm):
     class Meta:
         model=Tramo
         vigencia =( 
-        ("1", "uno"), 
-        ("2", "dos"), )
+        ("1", "1"), 
+        ("2", "2"), )
         zonaGPS=(
          ("1","1"),
          ("2","2")   

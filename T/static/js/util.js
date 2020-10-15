@@ -49,59 +49,7 @@ const response=await fetch(`http://127.0.0.1:8000/proyecto/api/ruta/${codigo}`);
 const data=await response.json()
 return data;
 }
-// Crear elementos con atributos e hijo
-const createCustomElement = (element, attributes, children) => {
-  let customElement = document.createElement(element);
-  if (children !== undefined)
-    children.forEach((el) => {
-      if (el.nodeType) {
-        if (el.nodeType === 1 || el.nodeType === 11)
-          customElement.appendChild(el);
-      } else {
-        customElement.innerHTML += el;
-      }
-    });
-  addAttributes(customElement, attributes);
-  return customElement;
-};
-// Añadir un objeto de atributos a un elemento
-const addAttributes = (element, attrObj) => {
-  for (let attr in attrObj) {
-    if (attrObj.hasOwnProperty(attr)) element.setAttribute(attr, attrObj[attr]);
-  }
-};
-// const imprimir modal
-const printmodal = (content) => {
-  const modalcontentEl = createCustomElement(
-    "div",
-    {
-      id: "modal-content",
-      class: "modal-content",
-    },
-    [content]
-  );
 
-  const modalContainerEl = createCustomElement(
-    "div",
-    {
-      id: "modal-container",
-      class: "modal-container",
-    },
-    [modalcontentEl]
-  );
-  //imprimir
-  document.body.appendChild(modalContainerEl);
-
-  //FUNCION DE QUITAR
-
-  const removemodal = () => document.body.removeChild(modalContainerEl);
-
-  modalContainerEl.addEventListener("click", (e) => {
-    console.log(e.target);
-    if (e.target === modalContainerEl) removemodal();
-  });
-};
-//ingresar ruta
 
 //Eliminar ruta
 let eliminar = document.getElementById("delete");

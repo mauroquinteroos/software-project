@@ -34,14 +34,6 @@ def get_tramo(codTramo):
   tramo = Tramo.objects.get(codTramoPy=codTramo)
   return tramo
 
-def get_empleados():
-  empleados = Empleado.objects.all()
-  data=[]
-  for empleado in empleados:
-    data.append((empleado.codEmple,empleado.codPersona.desPersona))
-  print(tuple(data))
-  return tuple(data)
-
 # Controller
 def proyectos(request):
   projects = get_projects()
@@ -55,24 +47,33 @@ def rutas_by_project(request, cod_project):
     form= Rutaform(initial={
       'codPyto':cod_project
     })
-    print(form)
     contexto = {'project': project, 'rutas': rutas, 'form':form}
   else :
     form=Rutaform(request.POST)
     print('no entro')
     if form.is_valid():
-      print(form)
       form.save()
     return redirect('ruta', cod_project = cod_project)
   return render(request, 'rutas.html', contexto)
 
 
 def tramos_by_ruta(request, cod_ruta):
-  tramos = get_tramos_ruta(cod_ruta)
-  ruta = get_ruta(cod_ruta)
-  form = TramoForm()
-  project = get_project(ruta['codPyto_id'])
-  return render(request, 'tramos.html', {'tramos': tramos, 'ruta': ruta, 'project': project, 'form': form })
+  if request.method == 'GET':
+    tramos = get_tramos_ruta(cod_ruta)
+    ruta = get_ruta(cod_ruta)
+    project = get_project(ruta['codPyto_id'])
+    form = TramoForm()
+    form = TramoForm(initial={
+      'codPyto':ruta['codPyto_id'],
+      'codRutaPy':cod_ruta
+    })
+    contexto = {'tramos': tramos, 'ruta': ruta, 'project': project, 'form': form }
+  else:
+    form=TramoForm(request.POST)
+    if form.is_valid():
+      form.save()
+    return redirect('tramo',cod_ruta = cod_ruta)
+  return render(request, 'tramos.html', contexto)
 
 
 def json_ruta(request, cod_ruta):

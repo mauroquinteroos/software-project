@@ -43,8 +43,12 @@
         </ul>
       </nav>
       <!-- ----- Ends Sidebar ------->
-      <ul id="mi-menu" class="mi-menu">
-        <li title="detalle"><button type="button" class="btn btn-success boton" id="detalle"><img src={% static 'img/perfiles.png' %} alt="">Detalle</button></li>
+      <ul id="mi-menu-tramo" class="mi-menu">
+      
+        <li title="detalle"><a href="" class="btn btn-primary btn-bg" data-toggle="modal" data-target="#exampleModal1"
+          id="detalle"><img src={% static 'img/perfiles.png' %} 
+          alt="">Detalle</a></li>
+          
         <li title="editar" ><button type="button" class="btn btn-success boton" id="editar"> <img src={% static 'img/edit.png' %} alt="">Editar</button></li>
         <li title="Eliminar" ><button type="button" class="btn btn-danger boton" id="delete"><img src={% static 'img/trash.png' %} alt="">Eliminar</button></li>
        </ul>
@@ -170,7 +174,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="formulario" id="formulario" method="post" >
+        <form class="formulario" id="formulario" method="POST" >
+          {% csrf_token %}
           <div class="row tab-item">
             <div class="col-4">
               <label >{{ form.codTramo.label }}</label>
@@ -251,11 +256,18 @@
               {{form.observacionTramo}}
             </div>
           </div>
+          <div class="row tab-item">
+            <div class="col">
+              {{form.codPyto.as_hidden}}
+              {{form.codRutaPy.as_hidden}}
+              {{form.nroVersion.as_hidden}}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Tramo</button>
+          </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Guardar Tramo</button>
       </div>
     </div>
   </div>

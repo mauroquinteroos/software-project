@@ -69,7 +69,19 @@ def editarRuta(request, codRutaPy):
         if form.is_valid():
             form.save()
             return redirect('ruta',codRutaPy = codRutaPy)
-    return render(request,'rutas.html',contexto) 
+    return render(request,'rutas.html',contexto)
+
+def eliminarRuta(request, cod_project, cod_ruta):
+  pass
+  tramos = Tramo.objects.filter(codRutaPy=cod_ruta)
+  print(tramos)
+  if len(tramos) > 0:
+    tramos.delete()
+  ruta = Ruta.objects.get(codRutaPy=cod_ruta)
+  print(ruta)
+  ruta.delete()
+  return redirect('ruta', cod_project=cod_project)
+
 
 def tramos_by_ruta(request, cod_ruta):
   if request.method == 'GET':

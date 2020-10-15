@@ -127,20 +127,20 @@
                         <p class="table--item body">{{ ruta.progInicio }}</p>
                         <p class="table--item body">{{ ruta.progFinal }}</p>
                         <ul class="mi-menu">
-                          <li><a  class="btn btn-primary btn-bg" ><img src={% static 'img/edit.png' %} 
-                            alt="">Editar</a></li>
-                            <li><a href="/proyecto/eliminarRuta/{{ruta.codRutaPy}}"class="btn btn-primary btn-bg" ><img src={% static 'img/trash.png' %} 
-                              alt="">Eliminar</a></li>
+                          <li>
+                            <a class="btn btn-primary btn-bg" >
+                              <img src={% static 'img/edit.png' %} alt="">
+                              Editar
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/proyecto/eliminarRuta/{{project.codPyto}}/{{ruta.codRutaPy}}"class="btn btn-primary btn-bg" >
+                              <img src={% static 'img/trash.png' %} alt="">
+                              Eliminar
+                            </a>
+                          </li>
                         </ul>
                       </div>
-                      
-      
-                        <!-- <li title="editar"><a href="/proyecto/rutas/{{ruta.codRutaPy}}" class="btn btn-primary btn-bg" data-toggle="modal" data-target="#exampleModal2"
-                          id="detalle"><img src={% static 'img/edit.png' %} 
-                          alt="">Editar</a></li> -->
-                        
-                      
-
                     {% endfor %}
                   </div>
                 </div>

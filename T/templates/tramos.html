@@ -43,15 +43,6 @@
         </ul>
       </nav>
       <!-- ----- Ends Sidebar ------->
-      <ul id="mi-menu-tramo" class="mi-menu">
-      
-        <li title="detalle"><a href="" class="btn btn-primary btn-bg" data-toggle="modal" data-target="#exampleModal1"
-          id="detalle"><img src={% static 'img/perfiles.png' %} 
-          alt="">Detalle</a></li>
-          
-        <li title="editar" ><button type="button" class="btn btn-success boton" id="editar"> <img src={% static 'img/edit.png' %} alt="">Editar</button></li>
-        <li title="Eliminar" ><button type="button" class="btn btn-danger boton" id="delete"><img src={% static 'img/trash.png' %} alt="">Eliminar</button></li>
-       </ul>
       <!-- ----- Starts Main Content ----- -->
       <div id="content">
         <nav class="navbar navbar-expand navbar--collapse">
@@ -152,6 +143,20 @@
                         <p class="table--item body min-row-width">{{ tramo.denominacionTramo }}</p>
                         <p class="table--item body">{{ tramo.progInicio }}</p>
                         <p class="table--item body">{{ tramo.progFin }}</p>
+                        <ul class="mi-menu">
+                          <li>
+                            <a href="/proyecto/editarTramo/{{ruta.codRutaPy}}/{{tramo.codTramoPy}}" class="btn btn-primary btn-bg d-block">
+                              <img src={% static 'img/edit.png' %} alt="">
+                              Editar
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/proyecto/eliminarTramo/{{ruta.codRutaPy}}/{{tramo.codTramoPy}}" class="btn btn-primary btn-bg d-block">
+                              <img src={% static 'img/trash.png' %} alt="">
+                              Eliminar
+                            </a>
+                          </li>
+                        </ul>
                       </div>
                     {% endfor %}
                   </div>
@@ -279,6 +284,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src={% static 'js/main.js' %}></script>
-    <script src={% static 'js/tramo.js' %}></script>
+    <script src={% static 'js/util.js' %}></script>
   </body>
 </html>

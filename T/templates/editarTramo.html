@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruta</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/eada1e3dde.js" crossorigin="anonymous"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href={% static 'css/global.css' %}>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- ----- Starts Sidebar ----- -->
+      <nav id="sidebar">
+        <div class="sidebar--header" id="sidebar-header">
+          <img src={% static 'img/user.png' %} alt="user icon">
+          <p>Quinteros Mauro Danilo</p>
+        </div>
+        <ul class="list-unstyled sidebar--list" id="sidebar-list">
+          <li>
+            <a class="sidebar--item" href="/proyecto">
+              <i class="fas fa-tasks icon-sidebar"></i>
+              <span class="sidebar--item-text">Proyectos</span>
+            </a>
+          </li>
+          <li>
+            <a class="sidebar--item active" href="#">
+              <i class="fas fa-map-marker-alt fa-fw icon-sidebar"></i>
+              <span class="sidebar--item-text">Reconocimiento</span>
+            </a>
+          </li>
+          <li>
+            <a class="sidebar--item" href="#">
+              <i class="fas fa-drafting-compass fa-fw icon-sidebar"></i>
+              <span class="sidebar--item-text">Topografía</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- ----- Ends Sidebar ------->
+      <!-- ----- Starts Main Content ----- -->
+      <div id="content">
+        <nav class="navbar navbar-expand navbar--collapse">
+          <div class="container-fluid">
+            <button type="button" id="sidebar-btn" class="btn btn-bg">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+        </nav>
+        <div class="content--container">
+          <div class="content--container-bg">
+            <section class="section--container">
+                <div class="route--section">
+                  <h2 class="section--title">.:Ruta:.</h2>
+                  <div class="field--container ruta--container">
+                    <div class="field--item">
+                      <p class="field--item-label">Código</p>
+                      <p class="field--item-value">{{ ruta.codRutaPy }}</p>
+                    </div>
+                    <div class="field--item">
+                      <p class="field--item-label">Cód. Ruta Py</p>
+                      <p class="field--item-value">{{ ruta.codRuta }}</p>
+                    </div>
+                    <div class="field--item">
+                      <p class="field--item-label">Den. Corto</p>
+                      <p class="field--item-value">{{ ruta.denominacionRuta }}</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            <section class="section--container row m-0">
+              <div class="col-12 col-md-12 p-0 mb-5">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2 class="section--title m-0">.:Ruta:.</h2>
+                  <a href="/proyecto/tramo/{{ruta.codRutaPy}}" class="btn btn-primary btn-bg">Volver</a>
+                </div>
+              </div>
+              <div class="col-12 col-md-12 p-0">
+                <!-- Agregar formulario -->
+                <form class="formulario" id="formulario" method="POST" >
+                    {% csrf_token %}
+                    <div class="row tab-item">
+                      <div class="col-4">
+                        <label >{{ form.codTramo.label }}</label>
+                      {{ form.codTramo }} 
+                      </div>
+                      <div class="col-4">
+                        <label>{{form.fechaRegistro.label}}</label>
+                        {{form.fechaRegistro}}
+                      </div>
+                      <div class="col-4">
+                        <label>{{form.vigencia.label}}</label>
+                        {{form.vigencia}}
+                      </div>
+                    </div>
+                    <div class="row tab-item">
+                      <div class="col">
+                        <label>{{form.denominacionTramo.label}}</label>
+                        {{form.denominacionTramo}}
+                      </div>
+                    </div>
+                    <div class="row tab-item">
+                      <div class="col-6">
+                        <label>{{form.denominacionCortoTramo.label}}</label>
+                        {{form.denominacionCortoTramo}}
+                        
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.zonaGPS.label}}</label>
+                        {{form.zonaGPS}}
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.nroKmsTramo.label}}</label>
+                        {{form.nroKmsTramo}}
+                        <label>Kms.</label>
+                      </div>
+                    </div>
+                    <div class="row tab-item">
+                      <div class="col-3">
+                        <label>{{form.progInicio.label}}</label>
+                        {{form.progInicio}}
+                      
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.latitudInicioTramo.label}}</label>
+                        {{form.latitudInicioTramo}}
+                       
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.longitudInicioTramo.label}}</label>
+                        {{form.longitudInicioTramo}}
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.altitudInicioTramo.label}}</label>
+                        {{form.altitudInicioTramo}}
+                      </div>
+                    </div>
+                    <div class="row tab-item">
+                      <div class="col-3">
+                        <label>{{form.progFin.label}}</label>
+                        {{form.progFin}}
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.latitudFinalTramo.label}}</label>
+                        {{form.latitudFinalTramo}}
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.longitudFinalTramo.label}}</label>
+                        {{form.longitudFinalTramo}}
+                      </div>
+                      <div class="col-3">
+                        <label>{{form.altitudFinalTramo.label}}</label>
+                        {{form.altitudFinalTramo}}
+                      </div>
+                    </div>
+                    <div class="row tab-item">
+                      <div class="col">
+                        <label>{{form.observacionTramo.label}}</label>
+                        {{form.observacionTramo}}
+                      </div>
+                    </div>
+                    <div class="row tab-item">
+                      <div class="col">
+                        {{form.codPyto.as_hidden}}
+                        {{form.codRutaPy.as_hidden}}
+                        {{form.nroVersion.as_hidden}}
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Guardar Tramo</button>
+                    </div>
+                  </form>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <!-- ----- Ends Main Content ----- -->
+    </div>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src={% static 'js/main.js' %}></script>
+    <script src={% static 'js/util.js' %}></script>
+  </body>
+</html>

@@ -71,6 +71,22 @@ def editarRuta(request, cod_project, cod_ruta):
         return redirect('ruta',cod_project = cod_project)
     return render(request,'editarRuta.html',contexto)
 
+def editarTramo(request, cod_ruta, cod_tramo):
+    tramo = Tramo.objects.get(codTramoPy = cod_tramo)
+    ruta = get_ruta(cod_ruta)
+    if request.method =='GET':
+      form = TramoForm(instance = tramo)
+      contexto = {
+        'form': form,
+        'ruta': ruta
+      }
+    else:
+      form = TramoForm(request.POST, instance = tramo )
+      if form.is_valid():
+        form.save()
+        return redirect('tramo',cod_ruta = cod_ruta)
+    return render(request,'editarTramo.html',contexto)
+
 def eliminarRuta(request, cod_project, cod_ruta):
   tramos = Tramo.objects.filter(codRutaPy=cod_ruta)
   print(tramos)
@@ -80,6 +96,12 @@ def eliminarRuta(request, cod_project, cod_ruta):
   print(ruta)
   ruta.delete()
   return redirect('ruta', cod_project=cod_project)
+
+def eliminarTramo(request, cod_ruta, cod_tramo):
+  tramo = Tramo.objects.get(codTramoPy=cod_tramo)
+  print(tramo)
+  tramo.delete()
+  return redirect('tramo', cod_ruta=cod_ruta)
 
 
 def tramos_by_ruta(request, cod_ruta):

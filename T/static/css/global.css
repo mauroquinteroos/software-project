@@ -295,6 +295,19 @@ a, a:hover, a:focus {
   text-align: left;
 
 }
+.mi-menu-tramo{
+  display:none;
+  z-index:100;
+  position: absolute;
+  list-style: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  top: 10px;
+  left: 10px;
+  text-align: left;
+
+}
 .click-derecho{
   position: relative;
 }

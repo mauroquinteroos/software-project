@@ -12,7 +12,7 @@ class Rutaform(forms.ModelForm):
         )
         fields=('__all__')
         widgets={
-            'codRuta':forms.TextInput(attrs={'style':'width:40px;'}),
+            'codRuta':forms.TextInput(attrs={'style':'width:80px;'}),
             'fechaRegistro':forms.TextInput(attrs={'type':'date'}),
             'vigencia':forms.Select(choices = vigencia), 
             'denominacionRuta':forms.Textarea(attrs={'rows':'4','class':'form-control'}),

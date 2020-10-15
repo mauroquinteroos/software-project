@@ -2,6 +2,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import json
+from .models import Ruta
 
 # Models
 from T.models import *
@@ -56,6 +57,19 @@ def rutas_by_project(request, cod_project):
     return redirect('ruta', cod_project = cod_project)
   return render(request, 'rutas.html', contexto)
 
+def editarRuta(request, codRutaPy):
+    ruta = Ruta.objects.get(codRutaPy = codRutaPy)
+    if request.method =='GET':
+        form = Rutaform(instance = ruta)
+        contexto = {
+            'form': form
+        }
+    else:
+        form = Rutaform(request.POST, instance = ruta )
+        if form.is_valid():
+            form.save()
+            return redirect('ruta',codRutaPy = codRutaPy)
+    return render(request,'rutas.html',contexto) 
 
 def tramos_by_ruta(request, cod_ruta):
   if request.method == 'GET':

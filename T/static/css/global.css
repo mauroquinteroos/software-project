@@ -285,17 +285,21 @@ a, a:hover, a:focus {
 .mi-menu{
   display:none;
   z-index:100;
-  position:absolute;
+  position: absolute;
   list-style: none;
   cursor: pointer;
   margin: 0;
   padding: 0;
+  top: 10px;
+  left: 10px;
   text-align: left;
 
 }
-.mi-menu li img{
-  color: white;
+.click-derecho{
+  position: relative;
 }
+
+
 .boton{
   color: black;
   width: 111px;

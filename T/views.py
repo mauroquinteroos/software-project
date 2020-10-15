@@ -1,12 +1,10 @@
 # Django
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
 import json
 from .models import Ruta
 
 # Models
 from T.models import *
-
 from .forms import *
 
 # Consultas
@@ -57,22 +55,23 @@ def rutas_by_project(request, cod_project):
     return redirect('ruta', cod_project = cod_project)
   return render(request, 'rutas.html', contexto)
 
-def editarRuta(request, codRutaPy):
-    ruta = Ruta.objects.get(codRutaPy = codRutaPy)
+def editarRuta(request, cod_project, cod_ruta):
+    ruta = Ruta.objects.get(codRutaPy = cod_ruta)
+    project = get_project(cod_project)
     if request.method =='GET':
-        form = Rutaform(instance = ruta)
-        contexto = {
-            'form': form
-        }
+      form = Rutaform(instance = ruta)
+      contexto = {
+        'form': form,
+        'project': project
+      }
     else:
-        form = Rutaform(request.POST, instance = ruta )
-        if form.is_valid():
-            form.save()
-            return redirect('ruta',codRutaPy = codRutaPy)
-    return render(request,'rutas.html',contexto)
+      form = Rutaform(request.POST, instance = ruta )
+      if form.is_valid():
+        form.save()
+        return redirect('ruta',cod_project = cod_project)
+    return render(request,'editarRuta.html',contexto)
 
 def eliminarRuta(request, cod_project, cod_ruta):
-  pass
   tramos = Tramo.objects.filter(codRutaPy=cod_ruta)
   print(tramos)
   if len(tramos) > 0:
@@ -100,17 +99,3 @@ def tramos_by_ruta(request, cod_ruta):
       form.save()
     return redirect('tramo',cod_ruta = cod_ruta)
   return render(request, 'tramos.html', contexto)
-
-
-def json_ruta(request, cod_ruta):
-  ruta = get_ruta(cod_ruta)
-  print(ruta)
-  rutajson={
-    'nombre':ruta['codRutaPy'],
-    'denominacion':ruta['denominacionRuta']
-  }
-  return HttpResponse(
-    json.dumps(rutajson),
-    
-    content_type='application/json'
-  )

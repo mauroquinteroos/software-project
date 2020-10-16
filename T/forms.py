@@ -42,7 +42,7 @@ class TramoForm(forms.ModelForm):
         ) 
         fields=('__all__')
         widgets={
-            'codTramo':forms.TextInput(attrs={'style':'width:40px;'}),
+            'codTramo':forms.TextInput(attrs={'style':'width:60px;'}),
             'fechaRegistro':forms.TextInput(attrs={'type':'date'}),
             'vigencia':forms.Select(choices = vigencia), 
             'denominacionTramo':forms.Textarea(attrs={'rows':'4','class':'form-control'}),

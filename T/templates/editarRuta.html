@@ -92,7 +92,7 @@
                 <!-- Agregar formulario -->
                 <form class="formulario" method="POST" id="formulario">
                   {% csrf_token %}
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio">
                     <div class="col-2 pad">
                       <label >{{ form.codRuta.label }}</label>
                     {{ form.codRuta }}
@@ -110,13 +110,13 @@
                       {{form.vigencia}}
                     </div>
                   </div>
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio" >
                     <div class="col">
                       <label>{{form.denominacionRuta.label}}</label>
                       {{form.denominacionRuta}}
                     </div>
                   </div>
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio">
                     <div class="col-6 pad">
                       <label>{{form.denominacionCortoRuta.label}}</label>
                       {{form.denominacionCortoRuta}}
@@ -131,7 +131,7 @@
                       <label>Kms.</label>
                     </div>
                   </div>
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio">
                     <div class="col-3">
                       <label>{{form.progInicio.label}}</label>
                       {{form.progInicio}}
@@ -149,7 +149,7 @@
                       {{form.altitudInicioRuta}}
                     </div>
                   </div>
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio">
                     <div class="col-3">
                       <label>{{form.progFinal.label}}</label>
                       {{form.progFinal}}
@@ -167,19 +167,19 @@
                       {{form.altitudFinalRuta}}
                     </div>
                   </div>
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio">
                     <div class="col">
                       <label>{{form.observacionRuta.label}}</label>
                       {{form.observacionRuta}}
                     </div>
                   </div>
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio">
                     <div class="col">
                       <label>{{form.elaboradorPor.label}}</label>
                       {{form.elaboradorPor}}
                     </div>
                   </div>
-                  <div class="row tab-item">
+                  <div class="row tab-item espacio">
                     <div class="col">
                       {{form.codPyto.as_hidden}}
                       {{form.nroVersion.as_hidden}}

@@ -85,7 +85,7 @@
               <div class="col-12 col-md-12 p-0 mb-5">
                 <div class="d-flex justify-content-between align-items-center">
                   <h2 class="section--title m-0">.:Rutas:.</h2>
-                  <button type="button" class="btn btn-primary btn-bg">Registrar Ruta</button>
+                  <button type="button" class="btn btn-bg" id="" data-toggle="modal" data-target="#exampleModal" >Registrar Ruta</button>
                 </div>
               </div>
               <div class="col-3 col-md-3 p-0">
@@ -142,6 +142,121 @@
           </div>
         </div>
       </div>
+           <!-- Modal registrar tramo -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modal-ingresar">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Tramo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="formulario" method="POST" id="formulario">
+          {% csrf_token %}
+          <div class="row tab-item espacio">
+            <div class="col-2 pad">
+              <label >{{ form.codRuta.label }}</label>
+            {{ form.codRuta }}
+            </div>
+            <div class="col-3 pad">
+              {{form.codRutaPy.label}}
+              {{form.codRutaPy}}
+            </div>
+            <div class="col-4">
+              <label>{{form.fechaRegistro.label}}</label>
+              {{form.fechaRegistro}}
+            </div>
+            <div class="col-3">
+              <label>{{form.vigencia.label}}</label>
+              {{form.vigencia}}
+            </div>
+          </div>
+          <div class="row tab-item espacio" >
+            <div class="col">
+              <label>{{form.denominacionRuta.label}}</label>
+              {{form.denominacionRuta}}
+            </div>
+          </div>
+          <div class="row tab-item espacio">
+            <div class="col-6 pad">
+              <label>{{form.denominacionCortoRuta.label}}</label>
+              {{form.denominacionCortoRuta}}
+            </div>
+            <div class="col-3 pad">
+              <label>{{form.zonaGPS.label}}</label>
+              {{form.zonaGPS}}
+            </div>
+            <div class="col-3 pad">
+              <label>{{form.nroKms.label}}</label>
+              {{form.nroKms}}
+              <label>Kms.</label>
+            </div>
+          </div>
+          <div class="row tab-item espacio">
+            <div class="col-3">
+              <label>{{form.progInicio.label}}</label>
+              {{form.progInicio}}
+            </div>
+            <div class="col-3">
+              <label>{{form.latitudInicioRuta.label}}</label>
+              {{form.latitudInicioRuta}}
+            </div>
+            <div class="col-3">
+              <label>{{form.longitudInicioRuta.label}}</label>
+              {{form.longitudInicioRuta}}
+            </div>
+            <div class="col-3">
+              <label>{{form.altitudInicioRuta.label}}</label>
+              {{form.altitudInicioRuta}}
+            </div>
+          </div>
+          <div class="row tab-item espacio">
+            <div class="col-3">
+              <label>{{form.progFinal.label}}</label>
+              {{form.progFinal}}
+            </div>
+            <div class="col-3">
+              <label>{{form.latitudFinalRuta.label}}</label>
+              {{form.latitudFinalRuta}}
+            </div>
+            <div class="col-3">
+              <label>{{form.longitudFinalRuta.label}}</label>
+              {{form.longitudFinalRuta}}
+            </div>
+            <div class="col-3">
+              <label>{{form.altitudFinalRuta.label}}</label>
+              {{form.altitudFinalRuta}}
+            </div>
+          </div>
+          <div class="row tab-item espacio">
+            <div class="col">
+              <label>{{form.observacionRuta.label}}</label>
+              {{form.observacionRuta}}
+            </div>
+          </div>
+          <div class="row tab-item espacio">
+            <div class="col">
+              <label>{{form.elaboradorPor.label}}</label>
+              {{form.elaboradorPor}}
+            </div>
+          </div>
+          <div class="row tab-item espacio">
+            <div class="col">
+              {{form.codPyto.as_hidden}}
+              {{form.nroVersion.as_hidden}}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Ruta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
       <!-- ----- Ends Main Content ----- -->
     </div>
     <!-- Bootstrap -->

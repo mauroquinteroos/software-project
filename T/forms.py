@@ -28,6 +28,7 @@ class Rutaform(forms.ModelForm):
             'altitudInicioRuta':forms.TextInput(attrs={'class':'max115'}),
             'altitudFinalRuta':forms.TextInput(attrs={'class':'max115'}),
             'observacionRuta':forms.Textarea(attrs={'rows':'4','class':'form-control'}),
+               'elaboradorPor':forms.Select(attrs={'style':'width:300px;'}),
         }
 
 class TramoForm(forms.ModelForm):
@@ -58,6 +59,7 @@ class TramoForm(forms.ModelForm):
             'altitudInicioTramo':forms.TextInput(attrs={'class':'max115'}),
             'altitudFinalTramo':forms.TextInput(attrs={'class':'max115'}),
             'observacionTramo':forms.Textarea(attrs={'rows':'4','class':'form-control'}),
+         
         }
     
   

@@ -362,3 +362,7 @@ a, a:hover, a:focus {
 .max115{
   width: 115px;
 }
+.black{
+  background-color:#27384a !important; 
+  color:white !important;
+}
